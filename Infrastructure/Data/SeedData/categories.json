@@ -1,0 +1,26 @@
+[
+  {
+    "Id": 1,
+    "Category": "Beef"
+  },
+  {
+    "Id": 2,
+    "Category": "Chicken"
+  },
+  {
+    "Id": 3,
+    "Category": "Pork"
+  },
+  {
+    "Id": 4,
+    "Category": "Seafood"
+  },
+  {
+    "Id": 5,
+    "Category": "Vegetarian"
+  },
+  {
+    "Id": 6,
+    "Category": "Egg"
+  }
+]

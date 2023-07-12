@@ -1,0 +1,142 @@
+[
+  {
+    "Id": 1,
+    "Title": "Beef Pasta",
+    "Description": "Delicious and hearty beef pasta recipe that combines tender beef, al dente pasta, and a rich tomato sauce. This comforting dish is perfect for a cozy family dinner.",
+    "Picture": "images/beef-pasta",
+    "RecipeCategoryId": 1
+  },
+  {
+    "Id": 2,
+    "Title": "Vegetarian Sandwich",
+    "Description": "A flavorful and healthy vegetarian sandwich packed with fresh vegetables, tangy sauces, and your favorite cheese. It's a quick and easy meal for lunch or a light dinner.",
+    "Picture": "images/vegetarian-sandwich",
+    "RecipeCategoryId": 5
+  },
+  {
+    "Id": 3,
+    "Title": "Vegetarian Salad",
+    "Description": "A refreshing and nutritious vegetarian salad with crisp lettuce, juicy tomatoes, crunchy cucumbers, and a zesty vinaigrette dressing. It's a perfect side dish or a light meal on its own.",
+    "Picture": "images/vegetarian-salad",
+    "RecipeCategoryId": 5
+  },
+  {
+    "Id": 4,
+    "Title": "Pork Pasta",
+    "Description": "Tender and succulent pork combined with al dente pasta and a savory sauce. This pork pasta recipe is a satisfying dish that will please your taste buds.",
+    "Picture": "images/pork-pasta",
+    "RecipeCategoryId": 3
+  },
+  {
+    "Id": 5,
+    "Title": "Egg Breakfast",
+    "Description": "Start your day with a delicious and protein-packed egg breakfast. Whether you prefer scrambled, fried, or poached eggs, this recipe will give you the perfect morning fuel.",
+    "Picture": "images/egg-breakfast",
+    "RecipeCategoryId": 6
+  },
+  {
+    "Id": 6,
+    "Title": "Vegetarian Pancakes",
+    "Description": "Fluffy and delectable vegetarian pancakes made with a combination of flour, milk, eggs, and a variety of veggies. Serve them for breakfast or brunch with your favorite toppings.",
+    "Picture": "images/vegetarian-pancakes",
+    "RecipeCategoryId": 5
+  },
+  {
+    "Id": 7,
+    "Title": "Vegetarian Pizza",
+    "Description": "Savor the flavors of a mouthwatering vegetarian pizza topped with a variety of colorful veggies, gooey cheese, and a perfectly seasoned crust. It's a delightful treat for pizza lovers.",
+    "Picture": "images/vegetarian-pizza",
+    "RecipeCategoryId": 5
+  },
+  {
+    "Id": 8,
+    "Title": "Beef Steak",
+    "Description": "Juicy and tender beef steak cooked to perfection. This classic recipe will satisfy your carnivorous cravings and make any meal special.",
+    "Picture": "images/beef-steak",
+    "RecipeCategoryId": 1
+  },
+  {
+    "Id": 9,
+    "Title": "Pork Toast",
+    "Description": "Crispy and savory pork toast topped with a delectable mix of minced pork, herbs, and spices. This appetizer is a crowd-pleaser and perfect for any gathering.",
+    "Picture": "images/pork-toast",
+    "RecipeCategoryId": 3
+  },
+  {
+    "Id": 10,
+    "Title": "Seafood Fish with Rice",
+    "Description": "A delightful combination of tender seafood fish and fluffy rice cooked in a flavorful broth. This seafood dish is a complete meal that will transport you to coastal paradise.",
+    "Picture": "images/seafood-fish-with-rice",
+    "RecipeCategoryId": 4
+  },
+  {
+    "Id": 11,
+    "Title": "Chicken Salad",
+    "Description": "Enjoy a healthy and protein-rich chicken salad made with tender chicken breast, crisp lettuce, fresh veggies, and a tangy dressing. It's a satisfying and nutritious meal option.",
+    "Picture": "images/chicken-salad",
+    "RecipeCategoryId": 2
+  },
+  {
+    "Id": 12,
+    "Title": "Seafood Paella",
+    "Description": "A Spanish-inspired seafood paella featuring a medley of succulent seafood, saffron-infused rice, and aromatic herbs. This flavorful one-pot dish is perfect for entertaining.",
+    "Picture": "images/seafood-paella",
+    "RecipeCategoryId": 4
+  },
+  {
+    "Id": 13,
+    "Title": "Seafood Salmon and Salad",
+    "Description": "Indulge in a healthy and delicious combination of grilled salmon and a fresh salad made with crisp greens, colorful veggies, and a zesty lemon dressing. A perfect harmony of flavors.",
+    "Picture": "images/seafood-salmon-and-salad",
+    "RecipeCategoryId": 4
+  },
+  {
+    "Id": 14,
+    "Title": "Seafood Salmon and Edamame",
+    "Description": "A nutritious and flavorful dish featuring seared salmon fillet accompanied by tender edamame beans and a tangy sauce. It's a delightful fusion of Asian flavors.",
+    "Picture": "images/seafood-salmon-and-edamame",
+    "RecipeCategoryId": 4
+  },
+  {
+    "Id": 15,
+    "Title": "Chicken Wraps",
+    "Description": "Quick and easy chicken wraps filled with seasoned chicken, fresh veggies, and a creamy dressing. These wraps are perfect for a light lunch or a grab-and-go meal.",
+    "Picture": "images/chicken-wraps",
+    "RecipeCategoryId": 2
+  },
+  {
+    "Id": 16,
+    "Title": "Beef Ribs",
+    "Description": "Satisfy your carnivorous cravings with tender and succulent beef ribs cooked low and slow to perfection. These flavorful ribs are perfect for a weekend barbecue feast.",
+    "Picture": "images/beef-ribs",
+    "RecipeCategoryId": 1
+  },
+  {
+    "Id": 17,
+    "Title": "Seafood Pasta",
+    "Description": "Indulge in a delightful seafood pasta dish loaded with succulent shrimp, tender calamari, and flavorful marinara sauce. It's a perfect combination of seafood and Italian flavors.",
+    "Picture": "images/seafood-pasta",
+    "RecipeCategoryId": 4
+  },
+  {
+    "Id": 18,
+    "Title": "Pork Pork Chop",
+    "Description": "Juicy and flavorful pork chops marinated with herbs and spices, then grilled to perfection. This classic pork dish is a crowd-pleaser and perfect for a hearty dinner.",
+    "Picture": "images/pork-pork-chop",
+    "RecipeCategoryId": 3
+  },
+  {
+    "Id": 19,
+    "Title": "Seafood Fish",
+    "Description": "Delight in the flavors of a perfectly cooked seafood fish dish featuring fresh and flaky fish fillets seasoned with herbs and served with a zesty sauce.",
+    "Picture": "images/seafood-fish",
+    "RecipeCategoryId": 4
+  },
+  {
+    "Id": 20,
+    "Title": "Vegetarian Pesto Pasta",
+    "Description": "A vibrant and flavorful vegetarian pesto pasta made with fresh basil, pine nuts, parmesan cheese, and tossed with your favorite pasta. It's a simple yet satisfying pasta dish.",
+    "Picture": "images/vegetarian-pesto-pasta",
+    "RecipeCategoryId": 5
+  }
+]
