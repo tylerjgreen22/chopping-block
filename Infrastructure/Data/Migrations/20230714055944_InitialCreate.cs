@@ -24,21 +24,6 @@ namespace Infrastructure.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "RecipeSteps",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Step = table.Column<string>(type: "TEXT", nullable: true),
-                    StepNumber = table.Column<int>(type: "INTEGER", nullable: false),
-                    RecipePostId = table.Column<int>(type: "INTEGER", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_RecipeSteps", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "RecipePosts",
                 columns: table => new
                 {
@@ -60,20 +45,46 @@ namespace Infrastructure.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "RecipeSteps",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Step = table.Column<string>(type: "TEXT", nullable: true),
+                    StepNumber = table.Column<int>(type: "INTEGER", nullable: false),
+                    RecipePostId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RecipeSteps", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_RecipeSteps_RecipePosts_RecipePostId",
+                        column: x => x.RecipePostId,
+                        principalTable: "RecipePosts",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_RecipePosts_RecipeCategoryId",
                 table: "RecipePosts",
                 column: "RecipeCategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_RecipeSteps_RecipePostId",
+                table: "RecipeSteps",
+                column: "RecipePostId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "RecipePosts");
+                name: "RecipeSteps");
 
             migrationBuilder.DropTable(
-                name: "RecipeSteps");
+                name: "RecipePosts");
 
             migrationBuilder.DropTable(
                 name: "RecipeCategories");

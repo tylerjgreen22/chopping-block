@@ -11,5 +11,6 @@ namespace Core.Entities
         public string? Picture { get; set; }
         public RecipeCategory? RecipeCategory { get; set; }
         public int RecipeCategoryId { get; set; }
+        public List<RecipeStep>? RecipeSteps { get; set; }
     }
 }

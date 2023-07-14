@@ -20,6 +20,12 @@ builder.Services.AddDbContext<DataContext>(options =>
 // Adds the implementation of the PostRespository as a Scoped service that will survive for the life of the Http call
 builder.Services.AddScoped<IPostRepository, PostRepository>();
 
+// Adds the implementation of the PostRespository as a Scoped service that will survive for the life of the Http call. Uses typeof due to generic types
+builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+
+// Adds the auto mapper service to be used throughtout application. Pulls mapping profiles from Assembly
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -28,6 +34,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseStaticFiles();
 
 app.UseAuthorization();
 

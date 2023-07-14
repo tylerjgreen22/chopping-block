@@ -72,6 +72,8 @@ namespace Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("RecipePostId");
+
                     b.ToTable("RecipeSteps");
                 });
 
@@ -84,6 +86,22 @@ namespace Infrastructure.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("RecipeCategory");
+                });
+
+            modelBuilder.Entity("Core.Entities.RecipeStep", b =>
+                {
+                    b.HasOne("Core.Entities.RecipePost", "RecipePost")
+                        .WithMany("RecipeSteps")
+                        .HasForeignKey("RecipePostId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("RecipePost");
+                });
+
+            modelBuilder.Entity("Core.Entities.RecipePost", b =>
+                {
+                    b.Navigation("RecipeSteps");
                 });
 #pragma warning restore 612, 618
         }

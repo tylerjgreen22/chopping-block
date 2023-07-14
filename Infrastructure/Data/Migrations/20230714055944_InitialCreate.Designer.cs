@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230712222400_InitialCreate")]
+    [Migration("20230714055944_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -75,6 +75,8 @@ namespace Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("RecipePostId");
+
                     b.ToTable("RecipeSteps");
                 });
 
@@ -87,6 +89,22 @@ namespace Infrastructure.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("RecipeCategory");
+                });
+
+            modelBuilder.Entity("Core.Entities.RecipeStep", b =>
+                {
+                    b.HasOne("Core.Entities.RecipePost", "RecipePost")
+                        .WithMany("RecipeSteps")
+                        .HasForeignKey("RecipePostId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("RecipePost");
+                });
+
+            modelBuilder.Entity("Core.Entities.RecipePost", b =>
+                {
+                    b.Navigation("RecipeSteps");
                 });
 #pragma warning restore 612, 618
         }

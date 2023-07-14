@@ -5,6 +5,7 @@ namespace Core.Entities
     {
         public string? Step { get; set; }
         public int StepNumber { get; set; }
+        public RecipePost? RecipePost { get; set; }
         public int RecipePostId { get; set; }
     }
 }
