@@ -1,4 +1,5 @@
-using Core.Interfaces;
+using API.Extensions;
+using API.Middleware;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,34 +8,27 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
-// Add DbContext to the dependency injection container to be used throughout the project. Connection string retrieved from appsettings.json
-builder.Services.AddDbContext<DataContext>(options =>
-{
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
-});
-
-// Adds the implementation of the PostRespository as a Scoped service that will survive for the life of the Http call
-builder.Services.AddScoped<IPostRepository, PostRepository>();
-
-// Adds the implementation of the PostRespository as a Scoped service that will survive for the life of the Http call. Uses typeof due to generic types
-builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-
-// Adds the auto mapper service to be used throughtout application. Pulls mapping profiles from Assembly
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+// Services abstracted out into extension method
+builder.Services.AddApplicationServices(builder.Configuration);
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+
+// Middleware to handle exceptions and send back to client
+app.UseMiddleware<ExceptionMiddleware>();
+
+// Redirects to error controller when non existent end point is visited
+app.UseStatusCodePagesWithReExecute("/errors/{0}");
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
+// Server static files
 app.UseStaticFiles();
 
 app.UseAuthorization();

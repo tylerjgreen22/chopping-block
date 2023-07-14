@@ -1,4 +1,5 @@
 using API.Dtos;
+using API.Errors;
 using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
@@ -7,9 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class PostsController : ControllerBase
+    public class PostsController : BaseApiController
     {
         // Private readonly fields for the repositories
         private readonly IGenericRepository<RecipePost> _recipePostRepo;
@@ -40,6 +39,8 @@ namespace API.Controllers
 
         // Route to retrieve posts from repository and return list of posts.
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiException), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<IReadOnlyList<PostToReturnDto>>> GetPosts()
         {
             var spec = new PostsWithCategorySpecification();
@@ -50,26 +51,40 @@ namespace API.Controllers
 
         // Route to retrieve single post from repository and return the post.
         [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiValidationErrorResponse), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ApiException), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<PostToReturnDto>> GetPost(int id)
         {
             var spec = new PostsWithCategorySpecification(id);
             var post = await _recipePostRepo.GetEntityWithSpec(spec);
+
+            if (post == null) return NotFound(new ApiResponse(404));
 
             return _mapper.Map<RecipePost, PostToReturnDto>(post);
         }
 
         //Route to retrieve the recipe steps from the repository based on the post id
         [HttpGet("{id}/recipeSteps")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiValidationErrorResponse), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ApiException), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<IReadOnlyList<StepToReturnDto>>> GetRecipeSteps(int id)
         {
             var spec = new StepsSpecification(id);
             var steps = await _recipeStepRepo.ListAsync(spec);
+
+            if (steps == null) return NotFound(new ApiResponse(404));
 
             return Ok(_mapper.Map<IReadOnlyList<RecipeStep>, IReadOnlyList<StepToReturnDto>>(steps));
         }
 
         // Route to retrieve all categories from the repository and return the categories 
         [HttpGet("categories")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiException), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<IReadOnlyList<RecipeCategory>>> GetRecipeCategories()
         {
             return Ok(await _recipeCategoryRepo.ListAllAsync());

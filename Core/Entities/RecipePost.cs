@@ -6,11 +6,11 @@ namespace Core.Entities
     */
     public class RecipePost : BaseEntity
     {
-        public string? Title { get; set; }
-        public string? Description { get; set; }
-        public string? Picture { get; set; }
-        public RecipeCategory? RecipeCategory { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public string Picture { get; set; }
+        public RecipeCategory RecipeCategory { get; set; }
         public int RecipeCategoryId { get; set; }
-        public List<RecipeStep>? RecipeSteps { get; set; }
+        public List<RecipeStep> RecipeSteps { get; set; }
     }
 }

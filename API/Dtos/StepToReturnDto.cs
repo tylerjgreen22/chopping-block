@@ -4,7 +4,7 @@ namespace API.Dtos
     public class StepToReturnDto
     {
         public int Id { get; set; }
-        public string? Step { get; set; }
+        public string Step { get; set; }
         public int StepNumber { get; set; }
     }
 }
