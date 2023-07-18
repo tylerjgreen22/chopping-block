@@ -21,9 +21,6 @@ namespace API.Extensions
                 options.UseSqlite(config.GetConnectionString("DefaultConnection"));
             });
 
-            // Adds the implementation of the PostRespository as a Scoped service that will survive for the life of the Http call
-            services.AddScoped<IPostRepository, PostRepository>();
-
             // Adds the implementation of the PostRespository as a Scoped service that will survive for the life of the Http call. Uses typeof due to generic types
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 

@@ -8,10 +8,15 @@ namespace Core.Specifications
     */
     public class PostsWithCategorySpecification : BaseSpecification<RecipePost>
     {
-        // Default constructor that adds the include statement for categories to the include list
-        public PostsWithCategorySpecification()
+        // Constructor that creates a specification that utilizes any critieria passed via query parameters and uses the BaseSpecification helper methods to apply the critieria
+        public PostsWithCategorySpecification(PostSpecParams postParams) : base(x =>
+                (string.IsNullOrEmpty(postParams.Search) || x.Title.ToLower().Contains(postParams.Search)) &&
+                (!postParams.CategoryId.HasValue || x.RecipeCategoryId == postParams.CategoryId)
+            )
         {
             AddInclude(post => post.RecipeCategory);
+            AddOrderBy(post => post.Title);
+            ApplyPaging(postParams.PageSize * (postParams.PageIndex - 1), postParams.PageSize);
         }
 
         // Overload that takes an int id and uses the BaseSpecification base constructor to utilize the criteria function supplied. Also adds includes

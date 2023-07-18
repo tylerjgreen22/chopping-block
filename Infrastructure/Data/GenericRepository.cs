@@ -24,12 +24,6 @@ namespace Infrastructure.Data
 
         // All methods return async non blocking Tasks to free up thread pool to continue execution of the program
 
-        // Retrieves from the database using Id
-        public async Task<T> GetByIdAsync(int id)
-        {
-            return await _context.Set<T>().FindAsync(id);
-        }
-
         // Retrieves a list of items from the database
         public async Task<IReadOnlyList<T>> ListAllAsync()
         {
@@ -46,6 +40,12 @@ namespace Infrastructure.Data
         public async Task<IReadOnlyList<T>> ListAsync(ISpecification<T> spec)
         {
             return await ApplySpecification(spec).ToListAsync();
+        }
+
+        // Counts the total items retrieved based on filter specification
+        public async Task<int> CountAsync(ISpecification<T> spec)
+        {
+            return await ApplySpecification(spec).CountAsync();
         }
 
         // Helper function that applies the specifications to a query on a database and returns the resulting query

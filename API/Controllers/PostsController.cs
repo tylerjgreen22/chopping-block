@@ -1,5 +1,6 @@
 using API.Dtos;
 using API.Errors;
+using API.Helpers;
 using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
@@ -37,16 +38,21 @@ namespace API.Controllers
         Some routes use automapper to map returned values to DTOs
         */
 
-        // Route to retrieve posts from repository and return list of posts.
+        // Route to retrieve posts from repository and return an object containg pagination information as well as requested data
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ApiException), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<IReadOnlyList<PostToReturnDto>>> GetPosts()
+        public async Task<ActionResult<IReadOnlyList<PostToReturnDto>>> GetPosts([FromQuery] PostSpecParams postParams)
         {
-            var spec = new PostsWithCategorySpecification();
-            var posts = await _recipePostRepo.ListAsync(spec);
+            var spec = new PostsWithCategorySpecification(postParams);
+            var countSpec = new PostWithFiltersSpecification(postParams);
 
-            return Ok(_mapper.Map<IReadOnlyList<RecipePost>, IReadOnlyList<PostToReturnDto>>(posts));
+            var posts = await _recipePostRepo.ListAsync(spec);
+            var totalItems = await _recipePostRepo.CountAsync(countSpec);
+
+            var data = _mapper.Map<IReadOnlyList<RecipePost>, IReadOnlyList<PostToReturnDto>>(posts);
+
+            return Ok(new Pagination<PostToReturnDto>(postParams.PageIndex, postParams.PageSize, totalItems, data));
         }
 
         // Route to retrieve single post from repository and return the post.
