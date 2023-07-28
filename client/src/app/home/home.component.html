@@ -27,8 +27,8 @@
             <h5>Search</h5>
             <div class="d-flex">
                 <input (keyup.enter)="onSearch()" type="text" placeholder="Search" class="form-control me-2" #search>
-                <button (click)="onSearch()" class="btn btn-primary mx-2">Search</button>
-                <button (click)="onReset()" class="btn btn-success">Reset</button>
+                <button type="button" (click)="onSearch()" class="btn btn-primary mx-2">Search</button>
+                <button (click)="onReset()" class="btn btn-secondary">Reset</button>
             </div>
         </div>
 

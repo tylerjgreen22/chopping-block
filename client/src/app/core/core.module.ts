@@ -6,6 +6,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ToastrModule } from 'ngx-toastr';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ServerErrorComponent } from './server-error/server-error.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 // Core module contains components and interceptors that will be used throughout the app
 @NgModule({
@@ -17,7 +18,8 @@ import { ServerErrorComponent } from './server-error/server-error.component';
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
     }),
+    NgxSpinnerModule,
   ],
-  exports: [NavBarComponent],
+  exports: [NavBarComponent, NgxSpinnerModule],
 })
 export class CoreModule {}

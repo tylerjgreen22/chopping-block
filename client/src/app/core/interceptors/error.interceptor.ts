@@ -14,7 +14,7 @@ import { ToastrService } from 'ngx-toastr';
 // Interceptor responsible for intercepting errors and generating appropriate error response
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
-  // Injecting router and toastr service to redirect on certain errors, and to create error toasts for certain errors
+  // Injecting router and toastr service to redirect on certain errors, and to create error toasts for certain errors: https://www.npmjs.com/package/ngx-toastr
   constructor(private router: Router, private toastr: ToastrService) {}
 
   intercept(
