@@ -1,0 +1,15 @@
+<div *ngIf="post" class="row">
+    <div class="col-6">
+        <img src="{{post.picture}}" alt="{{post.title}}">
+    </div>
+    <div class="col-6">
+        <h2>{{post.title}}</h2>
+        <p>{{post.description}}</p>
+    </div>
+</div>
+
+<div *ngIf="steps">
+    <div *ngFor="let step of steps">
+        <p>{{step.step}}</p>
+    </div>
+</div>

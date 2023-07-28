@@ -31,6 +31,8 @@ if (app.Environment.IsDevelopment())
 // Server static files
 app.UseStaticFiles();
 
+app.UseCors("CorsPolicy");
+
 app.UseAuthorization();
 
 app.MapControllers();

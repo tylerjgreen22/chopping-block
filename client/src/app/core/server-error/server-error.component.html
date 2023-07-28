@@ -1,0 +1,6 @@
+<h2>Server Error</h2>
+<ng-container *ngIf="error">
+    <h4 class="text-danger">Error: {{error.message}}</h4>
+    <h4 class="text-danger">Stack trace</h4>
+    <code>{{error.details}}</code>
+</ng-container>
