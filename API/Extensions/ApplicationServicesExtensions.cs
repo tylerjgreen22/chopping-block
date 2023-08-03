@@ -1,12 +1,13 @@
 using API.Errors;
 using Core.Interfaces;
 using Infrastructure.Data;
+using Infrastructure.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Extensions
 {
-    // Extension method that provides all services
+    // Extension class that provides all services
     public static class ApplicationServicesExtensions
     {
         public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration config)
@@ -23,6 +24,8 @@ namespace API.Extensions
 
             // Adds the implementation of the PostRespository as a Scoped service that will survive for the life of the Http call. Uses typeof due to generic types
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+
+            services.AddScoped<ITokenService, TokenService>();
 
             // Adds the auto mapper service to be used throughtout application. Pulls mapping profiles from Assembly
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
