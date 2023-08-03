@@ -12,11 +12,13 @@ namespace API.Controllers
 {
     public class AccountController : BaseApiController
     {
+        // Private readonly fields for dependencies
         private readonly SignInManager<AppUser> _signInManager;
         private readonly UserManager<AppUser> _userManager;
         private readonly ITokenService _tokenService;
         private readonly IMapper _mapper;
 
+        // Retrieving dependencies via dependency injection
         public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, ITokenService tokenService, IMapper mapper)
         {
             _userManager = userManager;
@@ -25,8 +27,14 @@ namespace API.Controllers
             _mapper = mapper;
         }
 
+        // All methods return non blocking tasks
+
+        // Get a user using the claims within the token
         [Authorize]
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ApiException), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<UserDto>> GetCurrentUser()
         {
             var user = await _userManager.FindUserByEmailClaimsPrinciple(User);
@@ -39,13 +47,20 @@ namespace API.Controllers
             };
         }
 
+        // Check if an email is already in use
         [HttpGet("emailexists")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiException), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<bool>> CheckEmailExists([FromQuery] string email)
         {
             return await _userManager.FindByEmailAsync(email) != null;
         }
 
+        // Login a user using the information passed in. If successful, returns a user DTO with the relevant information
         [HttpPost("login")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(typeof(ApiException), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
         {
             var user = await _userManager.FindByEmailAsync(loginDto.Email);
@@ -64,9 +79,17 @@ namespace API.Controllers
             };
         }
 
+        // Register a user using the information passed in. If successful, returns a user DTO
         [HttpPost("register")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiValidationErrorResponse), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ApiException), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
         {
+            if (CheckEmailExists(registerDto.Email).Result.Value)
+            {
+                return new BadRequestObjectResult(new ApiValidationErrorResponse { Errors = new[] { "Email address in use" } });
+            }
             var user = new AppUser
             {
                 DisplayName = registerDto.DisplayName,

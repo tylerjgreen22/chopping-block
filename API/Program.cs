@@ -15,6 +15,7 @@ builder.Services.AddControllers();
 // Services abstracted out into extension methods
 builder.Services.AddApplicationServices(builder.Configuration);
 builder.Services.AddIdentityServices(builder.Configuration);
+builder.Services.AddSwaggerDocumentation();
 
 var app = builder.Build();
 
@@ -26,24 +27,24 @@ app.UseMiddleware<ExceptionMiddleware>();
 // Redirects to error controller when non existent end point is visited
 app.UseStatusCodePagesWithReExecute("/errors/{0}");
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+// Using swagger service
+app.UseSwaggerDocumentation();
 
 // Server static files
 app.UseStaticFiles();
 
+// Using created CORS policy
 app.UseCors("CorsPolicy");
 
+// Using authentication and authorization
 app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
 
-// Accesses the local scope of the program and pulls out the context and logger from the services container. Logger is logging against Program
+// Accesses the local scope of the program and pulls out the contexts and logger from the services container. Logger is logging against Program
 // Using keyword is used as the scope is IDisposable, and must be disposed of after use
+// Pulls out userManager to create a user with seed method
 using var scope = app.Services.CreateScope();
 var services = scope.ServiceProvider;
 var context = services.GetRequiredService<DataContext>();
@@ -51,7 +52,7 @@ var identityContext = services.GetRequiredService<AppIdentityDbContext>();
 var userManager = services.GetRequiredService<UserManager<AppUser>>();
 var logger = services.GetRequiredService<ILogger<Program>>();
 
-// Creates the database based on migration, and used the DataContextSeed SeedAsync method to seed the database when the program starts
+// Creates the database based on migration, and uses the DataContextSeed SeedAsync  and AppIdentityDbContextSeed SeedUsersAsync methods to seed the databases when the program starts
 try
 {
     await context.Database.MigrateAsync();
