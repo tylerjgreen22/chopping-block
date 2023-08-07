@@ -3,5 +3,31 @@
     <h3 routerLink="/">Chopping Block</h3>
 
     <!-- Login -->
-    <h4>Login</h4>
+    <ng-container *ngIf="(accountService.currUser$ | async) === null">
+        <div>
+            <a routerLink="/account/login" class="btn btn-primary me-2">Login</a>
+            <a routerLink="/account/register" class="btn btn-secondary me-3">Signup</a>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="accountService.currUser$ | async as user">
+        <div class="dropdown ms-3 me-5" style="cursor: pointer;" dropdown>
+            <a dropdownToggle class="dropdown-toggle">
+                <strong>Welcome {{user.displayName}}</strong>
+            </a>
+            <ul *dropdownMenu class="dropdown-menu dropdown-menu-right">
+                <li class="py-1">
+                    <a routerLink="/posts" class="dropdown-item">
+                        <i class="fa fa-history me-3"></i> Your posts
+                    </a>
+                </li>
+                <div class="dropdown-divider"></div>
+                <li class="py-1">
+                    <a (click)="accountService.logout()" class="dropdown-item">
+                        <i class="fa fa-sign-out me-3"></i> Logout
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </ng-container>
 </header>

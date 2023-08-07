@@ -20,7 +20,11 @@ export class LoadingInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    this.loadingService.loading();
+    // Only set loading state if call is not too email exists
+    if (!request.url.includes('emailExists')) {
+      this.loadingService.loading();
+    }
+
     return next.handle(request).pipe(
       delay(1000),
       finalize(() => this.loadingService.idle())

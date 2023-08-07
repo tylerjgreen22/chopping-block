@@ -6,13 +6,14 @@ import { Pagination } from '../shared/models/pagination';
 import { Post } from '../shared/models/post';
 import { Category } from '../shared/models/category';
 import { Step } from '../shared/models/step';
+import { environment } from 'src/environments/environment';
 
-// Injectable service that uses the post params to make calls to the backend and retrieve data based on params
+// Injectable service that interacts with the posts endpoint to retrieve data to display on the home page
 @Injectable({
   providedIn: 'root',
 })
 export class HomeService {
-  baseUrl = 'https://localhost:5000/api/';
+  baseUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 

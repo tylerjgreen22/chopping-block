@@ -28,13 +28,12 @@ export class ErrorInterceptor implements HttpInterceptor {
           if (error.status === 400) {
             // If the error is validation error (multiple errors)
             if (error.error.errors) {
-              this.toastr.error(error.error.message, error.status.toString());
-              this.router.navigateByUrl('/not-found');
+              throw error.error;
             }
             // If the error is bad request, creates error toast
             else {
               this.toastr.error(error.error.message, error.status.toString());
-              this.router.navigateByUrl('/not-found');
+              this.router.navigateByUrl('/home');
             }
           }
 
