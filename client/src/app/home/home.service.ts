@@ -38,6 +38,10 @@ export class HomeService {
     return this.http.get<Post>(this.baseUrl + 'posts/' + id);
   }
 
+  addPost(values: any) {
+    return this.http.post<void>(this.baseUrl + 'posts', values);
+  }
+
   // Gets all categories
   getCategories() {
     return this.http.get<Category[]>(this.baseUrl + 'posts/categories');

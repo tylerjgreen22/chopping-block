@@ -4,13 +4,16 @@ namespace Core.Entities
     The RecipePost entity, representing the core of the application, the recipe post. 
     Has a foreign key relationship with the recipe category. 
     */
-    public class RecipePost : BaseEntity
+    public class Post : BaseEntity
     {
         public string Title { get; set; }
         public string Description { get; set; }
         public string Picture { get; set; }
-        public RecipeCategory RecipeCategory { get; set; }
-        public int RecipeCategoryId { get; set; }
-        public List<RecipeStep> RecipeSteps { get; set; }
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
+        public List<Step> Steps { get; set; }
+        public string UserId { get; set; }
+        public AppUser User { get; set; }
+        public ICollection<Like> Likes { get; set; }
     }
 }

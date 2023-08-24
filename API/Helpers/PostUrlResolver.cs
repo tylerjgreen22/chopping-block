@@ -5,7 +5,7 @@ using Core.Entities;
 namespace API.Helpers
 {
     // Resolver that retrieves api url from appsettings and resolves the picture url to the apiurl followed the by the picture url
-    public class PostUrlResolver : IValueResolver<RecipePost, PostToReturnDto, string>
+    public class PostUrlResolver : IValueResolver<Post, PostToReturnDto, string>
     {
         private readonly IConfiguration _config;
 
@@ -14,7 +14,7 @@ namespace API.Helpers
             _config = config;
         }
 
-        public string Resolve(RecipePost source, PostToReturnDto dest, string destMember, ResolutionContext context)
+        public string Resolve(Post source, PostToReturnDto dest, string destMember, ResolutionContext context)
         {
             if (!string.IsNullOrEmpty(source.Picture))
             {

@@ -12,9 +12,9 @@ namespace API.Controllers
     public class PostsController : BaseApiController
     {
         // Private readonly fields for the repositories
-        private readonly IGenericRepository<RecipePost> _recipePostRepo;
-        private readonly IGenericRepository<RecipeCategory> _recipeCategoryRepo;
-        private readonly IGenericRepository<RecipeStep> _recipeStepRepo;
+        private readonly IGenericRepository<Post> _postRepo;
+        private readonly IGenericRepository<Category> _categoryRepo;
+        private readonly IGenericRepository<Step> _stepRepo;
         private readonly IMapper _mapper;
 
         /* 
@@ -22,14 +22,14 @@ namespace API.Controllers
         allow for those repositories to then be used to retrieve information of that type
         */
         public PostsController(
-            IGenericRepository<RecipePost> recipePostRepo,
-            IGenericRepository<RecipeCategory> recipeCategoryRepo,
-            IGenericRepository<RecipeStep> recipeStepRepo,
+            IGenericRepository<Post> postRepo,
+            IGenericRepository<Category> categoryRepo,
+            IGenericRepository<Step> stepRepo,
             IMapper mapper)
         {
-            _recipePostRepo = recipePostRepo;
-            _recipeCategoryRepo = recipeCategoryRepo;
-            _recipeStepRepo = recipeStepRepo;
+            _postRepo = postRepo;
+            _categoryRepo = categoryRepo;
+            _stepRepo = stepRepo;
             _mapper = mapper;
         }
 
@@ -47,10 +47,10 @@ namespace API.Controllers
             var spec = new PostsWithCategorySpecification(postParams);
             var countSpec = new PostWithFiltersSpecification(postParams);
 
-            var posts = await _recipePostRepo.ListAsync(spec);
-            var totalItems = await _recipePostRepo.CountAsync(countSpec);
+            var posts = await _postRepo.ListAsync(spec);
+            var totalItems = await _postRepo.CountAsync(countSpec);
 
-            var data = _mapper.Map<IReadOnlyList<RecipePost>, IReadOnlyList<PostToReturnDto>>(posts);
+            var data = _mapper.Map<IReadOnlyList<Post>, IReadOnlyList<PostToReturnDto>>(posts);
 
             return Ok(new Pagination<PostToReturnDto>(postParams.PageIndex, postParams.PageSize, totalItems, data));
         }
@@ -64,36 +64,72 @@ namespace API.Controllers
         public async Task<ActionResult<PostToReturnDto>> GetPost(int id)
         {
             var spec = new PostsWithCategorySpecification(id);
-            var post = await _recipePostRepo.GetEntityWithSpec(spec);
+            var post = await _postRepo.GetEntityWithSpec(spec);
 
             if (post == null) return NotFound(new ApiResponse(404));
 
-            return _mapper.Map<RecipePost, PostToReturnDto>(post);
+            return _mapper.Map<Post, PostToReturnDto>(post);
         }
 
-        //Route to retrieve the recipe steps from the repository based on the post id
-        [HttpGet("{id}/recipeSteps")]
+        [HttpPost]
+        public async Task<IActionResult> CreatePost(Post post)
+        {
+            await _postRepo.CreateAsync(post);
+            return Ok();
+        }
+
+        [HttpPost("steps")]
+        public async Task<IActionResult> CreatePostSteps(Step[] steps)
+        {
+            await _stepRepo.CreateManyAsync(steps);
+            return Ok();
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdatePost(int id, [FromBody] Post post)
+        {
+            await _postRepo.UpdateAsync(id, post);
+            return Ok();
+        }
+
+        [HttpPut("{id}/steps")]
+        public async Task<IActionResult> UpdateSteps(int id, Step[] steps)
+        {
+            var spec = new StepsSpecification(id);
+            await _stepRepo.UpdateManyAsync(spec, steps);
+            return Ok();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeletePost(int id)
+        {
+            await _postRepo.DeleteAsync(id);
+            return Ok();
+        }
+
+        //Route to retrieve the  steps from the repository based on the post id
+        [HttpGet("{id}/Steps")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ApiValidationErrorResponse), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ApiException), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<IReadOnlyList<StepToReturnDto>>> GetRecipeSteps(int id)
+        public async Task<ActionResult<IReadOnlyList<StepToReturnDto>>> GetSteps(int id)
         {
             var spec = new StepsSpecification(id);
-            var steps = await _recipeStepRepo.ListAsync(spec);
+            var steps = await _stepRepo.ListAsync(spec);
 
             if (steps == null) return NotFound(new ApiResponse(404));
 
-            return Ok(_mapper.Map<IReadOnlyList<RecipeStep>, IReadOnlyList<StepToReturnDto>>(steps));
+            return Ok(_mapper.Map<IReadOnlyList<Step>, IReadOnlyList<StepToReturnDto>>(steps));
         }
 
         // Route to retrieve all categories from the repository and return the categories 
         [HttpGet("categories")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ApiException), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<IReadOnlyList<RecipeCategory>>> GetRecipeCategories()
+        public async Task<ActionResult<IReadOnlyList<Category>>> GetCategories()
         {
-            return Ok(await _recipeCategoryRepo.ListAllAsync());
+            return Ok(await _categoryRepo.ListAllAsync());
         }
     }
 }

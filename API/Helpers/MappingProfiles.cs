@@ -9,11 +9,11 @@ namespace API.Helpers
     {
         public MappingProfiles()
         {
-            CreateMap<RecipePost, PostToReturnDto>()
-                .ForMember(d => d.RecipeCategory, o => o.MapFrom(s => s.RecipeCategory.Category))
+            CreateMap<Post, PostToReturnDto>()
+                .ForMember(d => d.Category, o => o.MapFrom(s => s.Category.Name))
                 .ForMember(d => d.Picture, o => o.MapFrom<PostUrlResolver>());
 
-            CreateMap<RecipeStep, StepToReturnDto>();
+            CreateMap<Step, StepToReturnDto>();
         }
     }
 }

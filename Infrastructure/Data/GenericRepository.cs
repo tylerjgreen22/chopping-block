@@ -42,6 +42,64 @@ namespace Infrastructure.Data
             return await ApplySpecification(spec).ToListAsync();
         }
 
+        public async Task<T> CreateAsync(T entity)
+        {
+            _context.Set<T>().Add(entity);
+            await _context.SaveChangesAsync();
+            return entity;
+        }
+
+        public async Task<ICollection<T>> CreateManyAsync(ICollection<T> entities)
+        {
+            _context.Set<T>().AddRange(entities);
+            await _context.SaveChangesAsync();
+            return entities;
+        }
+
+        public async Task<T> UpdateAsync(int id, T entity)
+        {
+            var entityToUpdate = await _context.Set<T>().FindAsync(id);
+            _context.Entry(entityToUpdate).CurrentValues.SetValues(entity);
+            _context.Entry(entityToUpdate).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+            return entityToUpdate;
+        }
+
+        public async Task<ICollection<T>> UpdateManyAsync(ISpecification<T> spec, ICollection<T> entities)
+        {
+            var existingEntities = await ApplySpecification(spec).ToListAsync();
+            var entityIds = entities.Select(e => e.Id).ToList();
+
+            foreach (var entity in entities)
+            {
+                var entityToUpdate = await _context.Set<T>().FindAsync(entity.Id);
+                if (entityToUpdate != null)
+                {
+                    _context.Entry(entityToUpdate).CurrentValues.SetValues(entity);
+                    _context.Entry(entityToUpdate).State = EntityState.Modified;
+                }
+                else
+                {
+                    _context.Set<T>().Add(entity);
+                }
+
+            }
+
+            var entitiesToDelete = existingEntities.Where(e => !entityIds.Contains(e.Id)).ToList();
+            _context.Set<T>().RemoveRange(entitiesToDelete);
+
+            await _context.SaveChangesAsync();
+            return entities;
+        }
+
+        public async Task<T> DeleteAsync(int id)
+        {
+            var entityToRemove = await _context.Set<T>().FindAsync(id);
+            _context.Remove(entityToRemove);
+            await _context.SaveChangesAsync();
+            return entityToRemove;
+        }
+
         // Counts the total items retrieved based on filter specification
         public async Task<int> CountAsync(ISpecification<T> spec)
         {

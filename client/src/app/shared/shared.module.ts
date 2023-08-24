@@ -6,10 +6,11 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { TextInputComponent } from './text-input/text-input.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TextAreaComponent } from './text-area/text-area.component';
 
 // Shared module contains components and logic that will be shared amongst other components
 @NgModule({
-  declarations: [PaginationComponent, TextInputComponent],
+  declarations: [PaginationComponent, TextInputComponent, TextAreaComponent],
   imports: [
     CommonModule,
     PaginationModule.forRoot(),
@@ -22,6 +23,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     ReactiveFormsModule,
     BsDropdownModule,
     TextInputComponent,
+    TextAreaComponent,
   ],
 })
 export class SharedModule {}

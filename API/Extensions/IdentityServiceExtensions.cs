@@ -1,9 +1,8 @@
 using System.Text;
 using Core.Entities;
-using Infrastructure.Identity;
+using Infrastructure.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
 namespace API.Extensions
@@ -13,18 +12,13 @@ namespace API.Extensions
     {
         public static IServiceCollection AddIdentityServices(this IServiceCollection services, IConfiguration config)
         {
-            // Add Identity DB context using connection string from config
-            services.AddDbContext<AppIdentityDbContext>(opt =>
-            {
-                opt.UseSqlite(config.GetConnectionString("IdentityConnection"));
-            });
-
             // Adds Identity core services with the AppUser as the entity, as well as configures DB context as DB store and sign in manager for sign in/out
             services.AddIdentityCore<AppUser>(opt =>
             {
-                // Options go here
+                opt.Password.RequireNonAlphanumeric = false;
+                opt.User.RequireUniqueEmail = true;
             })
-            .AddEntityFrameworkStores<AppIdentityDbContext>()
+            .AddEntityFrameworkStores<DataContext>()
             .AddSignInManager<SignInManager<AppUser>>();
 
             // Configures authentication using JWT bearer auth and set token validation parameters

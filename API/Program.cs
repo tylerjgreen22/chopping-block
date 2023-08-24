@@ -2,7 +2,6 @@ using API.Extensions;
 using API.Middleware;
 using Core.Entities;
 using Infrastructure.Data;
-using Infrastructure.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -47,21 +46,18 @@ app.MapControllers();
 // Pulls out userManager to create a user with seed method
 using var scope = app.Services.CreateScope();
 var services = scope.ServiceProvider;
-var context = services.GetRequiredService<DataContext>();
-var identityContext = services.GetRequiredService<AppIdentityDbContext>();
-var userManager = services.GetRequiredService<UserManager<AppUser>>();
-var logger = services.GetRequiredService<ILogger<Program>>();
 
 // Creates the database based on migration, and uses the DataContextSeed SeedAsync  and AppIdentityDbContextSeed SeedUsersAsync methods to seed the databases when the program starts
 try
 {
+    var context = services.GetRequiredService<DataContext>();
+    var userManager = services.GetRequiredService<UserManager<AppUser>>();
     await context.Database.MigrateAsync();
-    await identityContext.Database.MigrateAsync();
-    await DataContextSeed.SeedAsync(context);
-    await AppIdentityDbContextSeed.SeedUsersAsync(userManager);
+    await DataContextSeed.SeedAsync(context, userManager);
 }
 catch (Exception ex)
 {
+    var logger = services.GetRequiredService<ILogger<Program>>();
     logger.LogError(ex, "An error occured during migration");
 }
 

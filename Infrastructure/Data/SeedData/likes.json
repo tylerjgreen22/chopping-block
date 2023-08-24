@@ -1,0 +1,26 @@
+[
+  {
+    "PostId": 1,
+    "UserId": "1678a7d9-72cf-40d7-9eaa-86c5141c8b21"
+  },
+  {
+    "PostId": 1,
+    "UserId": "ff186661-6fc6-4072-87c8-6e24468a906f"
+  },
+  {
+    "PostId": 1,
+    "UserId": "307efb87-ccbb-4c2f-a4fb-a89270c670fb"
+  },
+  {
+    "PostId": 2,
+    "UserId": "1678a7d9-72cf-40d7-9eaa-86c5141c8b21"
+  },
+  {
+    "PostId": 2,
+    "UserId": "ff186661-6fc6-4072-87c8-6e24468a906f"
+  },
+  {
+    "PostId": 3,
+    "UserId": "1678a7d9-72cf-40d7-9eaa-86c5141c8b21"
+  }
+]

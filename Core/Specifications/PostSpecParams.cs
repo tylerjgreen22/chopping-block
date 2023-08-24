@@ -1,3 +1,5 @@
+using Core.Entities;
+
 namespace Core.Specifications
 {
     /* 
@@ -23,5 +25,6 @@ namespace Core.Specifications
             get => _search;
             set => _search = value.ToLower();
         }
+        public string UserId { get; set; }
     }
 }

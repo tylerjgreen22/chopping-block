@@ -1,7 +1,6 @@
 using API.Dtos;
 using API.Errors;
 using API.Extensions;
-using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
 using Microsoft.AspNetCore.Authorization;
@@ -16,15 +15,13 @@ namespace API.Controllers
         private readonly SignInManager<AppUser> _signInManager;
         private readonly UserManager<AppUser> _userManager;
         private readonly ITokenService _tokenService;
-        private readonly IMapper _mapper;
 
         // Retrieving dependencies via dependency injection
-        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, ITokenService tokenService, IMapper mapper)
+        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, ITokenService tokenService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _tokenService = tokenService;
-            _mapper = mapper;
         }
 
         // All methods return non blocking tasks
@@ -43,7 +40,7 @@ namespace API.Controllers
             {
                 Email = user.Email,
                 Token = _tokenService.CreateToken(user),
-                DisplayName = user.DisplayName,
+                UserName = user.UserName,
             };
         }
 
@@ -75,7 +72,7 @@ namespace API.Controllers
             {
                 Email = user.Email,
                 Token = _tokenService.CreateToken(user),
-                DisplayName = user.DisplayName,
+                UserName = user.UserName,
             };
         }
 
@@ -92,9 +89,8 @@ namespace API.Controllers
             }
             var user = new AppUser
             {
-                DisplayName = registerDto.DisplayName,
+                UserName = registerDto.UserName,
                 Email = registerDto.Email,
-                UserName = registerDto.Email
             };
 
             var result = await _userManager.CreateAsync(user, registerDto.Password);
@@ -103,7 +99,7 @@ namespace API.Controllers
 
             return new UserDto
             {
-                DisplayName = user.DisplayName,
+                UserName = user.UserName,
                 Token = _tokenService.CreateToken(user),
                 Email = user.Email
             };

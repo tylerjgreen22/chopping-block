@@ -1,26 +1,26 @@
 [
   {
     "Id": 1,
-    "Category": "Beef"
+    "Name": "Beef"
   },
   {
     "Id": 2,
-    "Category": "Chicken"
+    "Name": "Chicken"
   },
   {
     "Id": 3,
-    "Category": "Pork"
+    "Name": "Pork"
   },
   {
     "Id": 4,
-    "Category": "Seafood"
+    "Name": "Seafood"
   },
   {
     "Id": 5,
-    "Category": "Vegetarian"
+    "Name": "Vegetarian"
   },
   {
     "Id": 6,
-    "Category": "Egg"
+    "Name": "Other"
   }
 ]

@@ -1,8 +1,8 @@
 namespace Core.Entities
 {
     // The recipe category entity, which represents recipe categories
-    public class RecipeCategory : BaseEntity
+    public class Category : BaseEntity
     {
-        public string Category { get; set; }
+        public string Name { get; set; }
     }
 }
