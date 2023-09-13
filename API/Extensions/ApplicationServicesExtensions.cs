@@ -1,6 +1,8 @@
 using API.Errors;
 using Core.Interfaces;
 using Infrastructure.Data;
+using Infrastructure.Images;
+using Infrastructure.Interfaces;
 using Infrastructure.Security;
 using Infrastructure.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -31,6 +33,7 @@ namespace API.Extensions
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IPostService, PostService>();
             services.AddScoped<ILikeService, LikeService>();
+            services.AddScoped<IImageService, ImageService>();
 
             // Adds the auto mapper service to be used throughtout application. Pulls mapping profiles from Assembly
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
@@ -66,6 +69,8 @@ namespace API.Extensions
             // Add Http context accessor and user accessor
             services.AddHttpContextAccessor();
             services.AddScoped<IUserAccessor, UserAccessor>();
+            services.AddScoped<IImageAccessor, ImageAccessor>();
+            services.Configure<CloudinarySettings>(config.GetSection("Cloudinary"));
 
             return services;
         }

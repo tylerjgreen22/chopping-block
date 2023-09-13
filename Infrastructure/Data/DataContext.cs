@@ -16,6 +16,7 @@ namespace Infrastructure.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<Step> Steps { get; set; }
         public DbSet<Like> Likes { get; set; }
+        public DbSet<Image> Images { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

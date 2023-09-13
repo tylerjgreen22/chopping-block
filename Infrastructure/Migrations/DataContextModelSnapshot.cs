@@ -97,6 +97,27 @@ namespace Infrastructure.Migrations
                     b.ToTable("Categories");
                 });
 
+            modelBuilder.Entity("Core.Entities.Image", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Url")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Images");
+                });
+
             modelBuilder.Entity("Core.Entities.Like", b =>
                 {
                     b.Property<string>("Id")
@@ -305,6 +326,15 @@ namespace Infrastructure.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Core.Entities.Image", b =>
+                {
+                    b.HasOne("Core.Entities.AppUser", "User")
+                        .WithMany("Images")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Core.Entities.Like", b =>
                 {
                     b.HasOne("Core.Entities.Post", "Post")
@@ -399,6 +429,8 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Core.Entities.AppUser", b =>
                 {
+                    b.Navigation("Images");
+
                     b.Navigation("Likes");
 
                     b.Navigation("Posts");

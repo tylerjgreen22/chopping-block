@@ -68,6 +68,13 @@ namespace Infrastructure.Data
                 context.Likes.AddRange(likes);
             }
 
+            if (!context.Images.Any())
+            {
+                var imagesData = File.ReadAllText("../Infrastructure/Data/SeedData/images.json");
+                var images = JsonSerializer.Deserialize<List<Image>>(imagesData);
+                context.Images.AddRange(images);
+            }
+
             if (context.ChangeTracker.HasChanges()) await context.SaveChangesAsync();
         }
     }

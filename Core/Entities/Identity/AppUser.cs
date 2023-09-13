@@ -7,5 +7,6 @@ namespace Core.Entities
     {
         public ICollection<Post> Posts { get; set; }
         public ICollection<Like> Likes { get; set; }
+        public ICollection<Image> Images { get; set; }
     }
 }

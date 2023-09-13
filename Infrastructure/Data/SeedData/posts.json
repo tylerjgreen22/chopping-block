@@ -3,7 +3,7 @@
     "Id": "2830f631-79d1-4596-80f6-ea016ee023d5",
     "Title": "Beef Pasta",
     "Description": "Delicious and hearty beef pasta recipe that combines tender beef, al dente pasta, and a rich tomato sauce. This comforting dish is perfect for a cozy family dinner.",
-    "Picture": "images/beef-pasta",
+    "Picture": "https://res.cloudinary.com/dw7f0jpoc/image/upload/v1694626894/b2rditf36l2zo2cmlwvd.jpg",
     "CategoryId": "c61e4614-4437-40d8-a793-6d5bf3565b5e",
     "UserId": "1678a7d9-72cf-40d7-9eaa-86c5141c8b21"
   },
@@ -11,7 +11,7 @@
     "Id": "ed76234f-18cd-43d2-b364-202345e62d2c",
     "Title": "Vegetarian Sandwich",
     "Description": "A flavorful and healthy vegetarian sandwich packed with fresh vegetables, tangy sauces, and your favorite cheese. It's a quick and easy meal for lunch or a light dinner.",
-    "Picture": "images/vegetarian-sandwich",
+    "Picture": "https://res.cloudinary.com/dw7f0jpoc/image/upload/v1694626958/ossl7vocljvhujrvr1vt.jpg",
     "CategoryId": "cf666a5f-e7db-4dcc-a49e-4c69d144785d",
     "UserId": "1678a7d9-72cf-40d7-9eaa-86c5141c8b21"
   },
@@ -19,7 +19,7 @@
     "Id": "3a7bc996-f2b8-4222-962a-b3c0c47643fc",
     "Title": "Vegetarian Salad",
     "Description": "A refreshing and nutritious vegetarian salad with crisp lettuce, juicy tomatoes, crunchy cucumbers, and a zesty vinaigrette dressing. It's a perfect side dish or a light meal on its own.",
-    "Picture": "images/vegetarian-salad",
+    "Picture": "https://res.cloudinary.com/dw7f0jpoc/image/upload/v1694626979/ta9qcghgukndgxwg9liv.jpg",
     "CategoryId": "cf666a5f-e7db-4dcc-a49e-4c69d144785d",
     "UserId": "1678a7d9-72cf-40d7-9eaa-86c5141c8b21"
   },
@@ -27,7 +27,7 @@
     "Id": "9e4e0a91-dba1-4203-8b13-a67b5e28c583",
     "Title": "Pork Pasta",
     "Description": "Tender and succulent pork combined with al dente pasta and a savory sauce. This pork pasta recipe is a satisfying dish that will please your taste buds.",
-    "Picture": "images/pork-pasta",
+    "Picture": "https://res.cloudinary.com/dw7f0jpoc/image/upload/v1694627008/ad8gbw8hy9bpgmu9djhy.jpg",
     "CategoryId": "5d5410bb-7f8a-459c-a919-46be10c90c4b",
     "UserId": "1678a7d9-72cf-40d7-9eaa-86c5141c8b21"
   },
@@ -35,7 +35,7 @@
     "Id": "0c949526-64e7-4667-94b8-3929edd1399f",
     "Title": "Egg Breakfast",
     "Description": "Start your day with a delicious and protein-packed egg breakfast. Whether you prefer scrambled, fried, or poached eggs, this recipe will give you the perfect morning fuel.",
-    "Picture": "images/egg-breakfast",
+    "Picture": "https://res.cloudinary.com/dw7f0jpoc/image/upload/v1694627030/uwh8ceslm8tbjaaier3x.jpg",
     "CategoryId": "f46b3ca7-b897-43e7-850c-ebd88ba5c5d8",
     "UserId": "1678a7d9-72cf-40d7-9eaa-86c5141c8b21"
   },
@@ -43,7 +43,7 @@
     "Id": "57fecb9c-244f-4199-af07-45c2dcb6fd87",
     "Title": "Vegetarian Pancakes",
     "Description": "Fluffy and delectable vegetarian pancakes made with a combination of flour, milk, eggs, and a variety of veggies. Serve them for breakfast or brunch with your favorite toppings.",
-    "Picture": "images/vegetarian-pancakes",
+    "Picture": "https://res.cloudinary.com/dw7f0jpoc/image/upload/v1694627085/snuo65cs926hwoixi5zx.jpg",
     "CategoryId": "cf666a5f-e7db-4dcc-a49e-4c69d144785d",
     "UserId": "ff186661-6fc6-4072-87c8-6e24468a906f"
   },
@@ -51,7 +51,7 @@
     "Id": "2bac3382-5ca0-4444-a216-9ecedde14677",
     "Title": "Vegetarian Pizza",
     "Description": "Savor the flavors of a mouthwatering vegetarian pizza topped with a variety of colorful veggies, gooey cheese, and a perfectly seasoned crust. It's a delightful treat for pizza lovers.",
-    "Picture": "images/vegetarian-pizza",
+    "Picture": "https://res.cloudinary.com/dw7f0jpoc/image/upload/v1694627434/cw3mjwfucsj4aqu9qmtm.jpg",
     "CategoryId": "cf666a5f-e7db-4dcc-a49e-4c69d144785d",
     "UserId": "ff186661-6fc6-4072-87c8-6e24468a906f"
   },
@@ -59,7 +59,7 @@
     "Id": "d8d20259-4073-4afa-907a-5a653096cde3",
     "Title": "Beef Steak",
     "Description": "Juicy and tender beef steak cooked to perfection. This classic recipe will satisfy your carnivorous cravings and make any meal special.",
-    "Picture": "images/beef-steak",
+    "Picture": "https://res.cloudinary.com/dw7f0jpoc/image/upload/v1694627453/uqvlyyztysixzwpvpzlz.jpg",
     "CategoryId": "c61e4614-4437-40d8-a793-6d5bf3565b5e",
     "UserId": "ff186661-6fc6-4072-87c8-6e24468a906f"
   },
@@ -67,7 +67,7 @@
     "Id": "9869eba4-6189-460e-ac2f-481944d5599f",
     "Title": "Pork Toast",
     "Description": "Crispy and savory pork toast topped with a delectable mix of minced pork, herbs, and spices. This appetizer is a crowd-pleaser and perfect for any gathering.",
-    "Picture": "images/pork-toast",
+    "Picture": "https://res.cloudinary.com/dw7f0jpoc/image/upload/v1694627477/hsuaetlas2l45fsdzdv6.jpg",
     "CategoryId": "5d5410bb-7f8a-459c-a919-46be10c90c4b",
     "UserId": "ff186661-6fc6-4072-87c8-6e24468a906f"
   },
@@ -75,7 +75,7 @@
     "Id": "35a1b6b4-f48a-44e1-85cd-8ebb94f5fe96",
     "Title": "Seafood Fish with Rice",
     "Description": "A delightful combination of tender seafood fish and fluffy rice cooked in a flavorful broth. This seafood dish is a complete meal that will transport you to coastal paradise.",
-    "Picture": "images/seafood-fish-with-rice",
+    "Picture": "https://res.cloudinary.com/dw7f0jpoc/image/upload/v1694627496/fiu6pl9tq4flyeyulhla.jpg",
     "CategoryId": "6bcb2065-f1df-4673-acd3-3a3e8edbacc4",
     "UserId": "ff186661-6fc6-4072-87c8-6e24468a906f"
   },
@@ -83,7 +83,7 @@
     "Id": "1abe3745-8203-4022-92c7-7041db2b5f2c",
     "Title": "Chicken Salad",
     "Description": "Enjoy a healthy and protein-rich chicken salad made with tender chicken breast, crisp lettuce, fresh veggies, and a tangy dressing. It's a satisfying and nutritious meal option.",
-    "Picture": "images/chicken-salad",
+    "Picture": "https://res.cloudinary.com/dw7f0jpoc/image/upload/v1694627559/ety1os296owzmaqfrez0.jpg",
     "CategoryId": "684fea6f-b4c7-424b-988f-48099d40c5d4",
     "UserId": "307efb87-ccbb-4c2f-a4fb-a89270c670fb"
   },
@@ -91,7 +91,7 @@
     "Id": "92eaa4d7-61e5-4572-9d95-71e6330ac7af",
     "Title": "Seafood Paella",
     "Description": "A Spanish-inspired seafood paella featuring a medley of succulent seafood, saffron-infused rice, and aromatic herbs. This flavorful one-pot dish is perfect for entertaining.",
-    "Picture": "images/seafood-paella",
+    "Picture": "https://res.cloudinary.com/dw7f0jpoc/image/upload/v1694627577/dmfwxeitlpnvd01wkbug.jpg",
     "CategoryId": "6bcb2065-f1df-4673-acd3-3a3e8edbacc4",
     "UserId": "307efb87-ccbb-4c2f-a4fb-a89270c670fb"
   },
@@ -99,7 +99,7 @@
     "Id": "e5a898ed-69c8-4058-adb4-d676571d6dec",
     "Title": "Seafood Salmon and Salad",
     "Description": "Indulge in a healthy and delicious combination of grilled salmon and a fresh salad made with crisp greens, colorful veggies, and a zesty lemon dressing. A perfect harmony of flavors.",
-    "Picture": "images/seafood-salmon-and-salad",
+    "Picture": "https://res.cloudinary.com/dw7f0jpoc/image/upload/v1694627599/llvo9uq2lksfc3kxk7nb.jpg",
     "CategoryId": "6bcb2065-f1df-4673-acd3-3a3e8edbacc4",
     "UserId": "307efb87-ccbb-4c2f-a4fb-a89270c670fb"
   },
@@ -107,7 +107,7 @@
     "Id": "f28c86a8-f49e-4f98-8941-40bb2aba363f",
     "Title": "Chicken Wraps",
     "Description": "Quick and easy chicken wraps filled with seasoned chicken, fresh veggies, and a creamy dressing. These wraps are perfect for a light lunch or a grab-and-go meal.",
-    "Picture": "images/chicken-wraps",
+    "Picture": "https://res.cloudinary.com/dw7f0jpoc/image/upload/v1694627618/lfts5mevbivyjrrrtl27.jpg",
     "CategoryId": "684fea6f-b4c7-424b-988f-48099d40c5d4",
     "UserId": "307efb87-ccbb-4c2f-a4fb-a89270c670fb"
   },
@@ -115,7 +115,7 @@
     "Id": "f9ad4f06-b087-4f4c-b0ee-91f121280f82",
     "Title": "Beef Ribs",
     "Description": "Satisfy your carnivorous cravings with tender and succulent beef ribs cooked low and slow to perfection. These flavorful ribs are perfect for a weekend barbecue feast.",
-    "Picture": "images/beef-ribs",
+    "Picture": "https://res.cloudinary.com/dw7f0jpoc/image/upload/v1694627640/wzieqsmybmke8jajvhal.jpg",
     "CategoryId": "c61e4614-4437-40d8-a793-6d5bf3565b5e",
     "UserId": "307efb87-ccbb-4c2f-a4fb-a89270c670fb"
   },
@@ -123,7 +123,7 @@
     "Id": "180024a7-aa76-4e91-9697-df0fd82155d8",
     "Title": "Seafood Pasta",
     "Description": "Indulge in a delightful seafood pasta dish loaded with succulent shrimp, tender calamari, and flavorful marinara sauce. It's a perfect combination of seafood and Italian flavors.",
-    "Picture": "images/seafood-pasta",
+    "Picture": "https://res.cloudinary.com/dw7f0jpoc/image/upload/v1694627690/oy6fpaglsi6bs2e4fvoc.jpg",
     "CategoryId": "6bcb2065-f1df-4673-acd3-3a3e8edbacc4",
     "UserId": "1678a7d9-72cf-40d7-9eaa-86c5141c8b21"
   },
@@ -131,7 +131,7 @@
     "Id": "4a8d6c79-fca3-43ba-b625-8e3a8f1d8839",
     "Title": "Pork Pork Chop",
     "Description": "Juicy and flavorful pork chops marinated with herbs and spices, then grilled to perfection. This classic pork dish is a crowd-pleaser and perfect for a hearty dinner.",
-    "Picture": "images/pork-pork-chop",
+    "Picture": "https://res.cloudinary.com/dw7f0jpoc/image/upload/v1694627711/bayjujqci8mqdmdstui7.jpg",
     "CategoryId": "5d5410bb-7f8a-459c-a919-46be10c90c4b",
     "UserId": "1678a7d9-72cf-40d7-9eaa-86c5141c8b21"
   },
@@ -139,7 +139,7 @@
     "Id": "9210586f-2aa6-48a0-aad8-50a9b950aed5",
     "Title": "Seafood Fish",
     "Description": "Delight in the flavors of a perfectly cooked seafood fish dish featuring fresh and flaky fish fillets seasoned with herbs and served with a zesty sauce.",
-    "Picture": "images/seafood-fish",
+    "Picture": "https://res.cloudinary.com/dw7f0jpoc/image/upload/v1694627728/den7y6meezipngoguwus.jpg",
     "CategoryId": "6bcb2065-f1df-4673-acd3-3a3e8edbacc4",
     "UserId": "1678a7d9-72cf-40d7-9eaa-86c5141c8b21"
   },
@@ -147,7 +147,7 @@
     "Id": "48cd9dbb-35e3-4879-910a-68d331f19e33",
     "Title": "Vegetarian Pesto Pasta",
     "Description": "A vibrant and flavorful vegetarian pesto pasta made with fresh basil, pine nuts, parmesan cheese, and tossed with your favorite pasta. It's a simple yet satisfying pasta dish.",
-    "Picture": "images/vegetarian-pesto-pasta",
+    "Picture": "https://res.cloudinary.com/dw7f0jpoc/image/upload/v1694627744/c5bl0juj8jo8t37yqgwb.jpg",
     "CategoryId": "cf666a5f-e7db-4dcc-a49e-4c69d144785d",
     "UserId": "1678a7d9-72cf-40d7-9eaa-86c5141c8b21"
   }

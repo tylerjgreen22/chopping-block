@@ -1,5 +1,6 @@
 using Core.Entities;
 using Core.Interfaces;
+using Core.Models;
 using Core.Specifications;
 
 namespace Infrastructure.Services

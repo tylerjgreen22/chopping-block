@@ -5,6 +5,7 @@
 
 *.db
 *.db*
+appsettings.json
 
 # User-specific files
 *.rsuser
