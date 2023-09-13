@@ -2,476 +2,476 @@
   {
     "Instruction": "Cook the pasta according to the package instructions until al dente.",
     "StepNumber": 1,
-    "PostId": 1
+    "PostId": "2830f631-79d1-4596-80f6-ea016ee023d5"
   },
   {
     "Instruction": "In a large skillet, heat olive oil over medium heat. Add minced garlic and sauté until fragrant.",
     "StepNumber": 2,
-    "PostId": 1
+    "PostId": "2830f631-79d1-4596-80f6-ea016ee023d5"
   },
   {
     "Instruction": "Add ground beef to the skillet and cook until browned. Drain any excess grease.",
     "StepNumber": 3,
-    "PostId": 1
+    "PostId": "2830f631-79d1-4596-80f6-ea016ee023d5"
   },
   {
     "Instruction": "Pour in the tomato sauce and stir well. Simmer for 10 minutes.",
     "StepNumber": 4,
-    "PostId": 1
+    "PostId": "2830f631-79d1-4596-80f6-ea016ee023d5"
   },
   {
     "Instruction": "Add the cooked pasta to the skillet and toss to combine. Cook for an additional 2 minutes to heat through.",
     "StepNumber": 5,
-    "PostId": 1
+    "PostId": "2830f631-79d1-4596-80f6-ea016ee023d5"
   },
   {
     "Instruction": "Spread mayonnaise on one side of each bread slice.",
     "StepNumber": 1,
-    "PostId": 2
+    "PostId": "ed76234f-18cd-43d2-b364-202345e62d2c"
   },
   {
     "Instruction": "Layer the bread slices with your choice of vegetables, such as lettuce, tomatoes, cucumbers, and avocado.",
     "StepNumber": 2,
-    "PostId": 2
+    "PostId": "ed76234f-18cd-43d2-b364-202345e62d2c"
   },
   {
     "Instruction": "Add your favorite sauces, such as mustard or mayonnaise, for extra flavor.",
     "StepNumber": 3,
-    "PostId": 2
+    "PostId": "ed76234f-18cd-43d2-b364-202345e62d2c"
   },
   {
     "Instruction": "Top with another slice of bread to complete the sandwich.",
     "StepNumber": 4,
-    "PostId": 2
+    "PostId": "ed76234f-18cd-43d2-b364-202345e62d2c"
   },
   {
     "Instruction": "Cut the sandwich diagonally and serve.",
     "StepNumber": 5,
-    "PostId": 2
+    "PostId": "ed76234f-18cd-43d2-b364-202345e62d2c"
   },
   {
     "Instruction": "In a large bowl, combine the lettuce, cherry tomatoes, sliced cucumbers, and red onions.",
     "StepNumber": 1,
-    "PostId": 3
+    "PostId": "3a7bc996-f2b8-4222-962a-b3c0c47643fc"
   },
   {
     "Instruction": "In a small bowl, whisk together olive oil, lemon juice, salt, and pepper to make the dressing.",
     "StepNumber": 2,
-    "PostId": 3
+    "PostId": "3a7bc996-f2b8-4222-962a-b3c0c47643fc"
   },
   {
     "Instruction": "Drizzle the dressing over the salad and toss to combine.",
     "StepNumber": 3,
-    "PostId": 3
+    "PostId": "3a7bc996-f2b8-4222-962a-b3c0c47643fc"
   },
   {
     "Instruction": "Serve the vegetarian salad as a side dish or add grilled tofu or chickpeas for a complete meal.",
     "StepNumber": 4,
-    "PostId": 3
+    "PostId": "3a7bc996-f2b8-4222-962a-b3c0c47643fc"
   },
   {
     "Instruction": "Bring a large pot of salted water to a boil. Cook the pork pasta until al dente.",
     "StepNumber": 1,
-    "PostId": 4
+    "PostId": "9e4e0a91-dba1-4203-8b13-a67b5e28c583"
   },
   {
     "Instruction": "In a skillet, heat olive oil over medium heat. Add minced garlic and sauté until fragrant.",
     "StepNumber": 2,
-    "PostId": 4
+    "PostId": "9e4e0a91-dba1-4203-8b13-a67b5e28c583"
   },
   {
     "Instruction": "Add ground pork to the skillet and cook until browned. Drain any excess grease.",
     "StepNumber": 3,
-    "PostId": 4
+    "PostId": "9e4e0a91-dba1-4203-8b13-a67b5e28c583"
   },
   {
     "Instruction": "Pour in the pasta sauce and simmer for 10 minutes.",
     "StepNumber": 4,
-    "PostId": 4
+    "PostId": "9e4e0a91-dba1-4203-8b13-a67b5e28c583"
   },
   {
     "Instruction": "Add the cooked pasta to the skillet and toss to combine. Cook for an additional 2 minutes to heat through.",
     "StepNumber": 5,
-    "PostId": 4
+    "PostId": "9e4e0a91-dba1-4203-8b13-a67b5e28c583"
   },
   {
     "Instruction": "In a non-stick skillet, melt butter over medium heat.",
     "StepNumber": 1,
-    "PostId": 5
+    "PostId": "0c949526-64e7-4667-94b8-3929edd1399f"
   },
   {
     "Instruction": "Crack the eggs into the skillet and cook to your desired doneness.",
     "StepNumber": 2,
-    "PostId": 5
+    "PostId": "0c949526-64e7-4667-94b8-3929edd1399f"
   },
   {
     "Instruction": "Season the eggs with salt and pepper.",
     "StepNumber": 3,
-    "PostId": 5
+    "PostId": "0c949526-64e7-4667-94b8-3929edd1399f"
   },
   {
     "Instruction": "Serve the eggs with your choice of sides, such as bacon, toast, or hash browns.",
     "StepNumber": 4,
-    "PostId": 5
+    "PostId": "0c949526-64e7-4667-94b8-3929edd1399f"
   },
   {
     "Instruction": "In a mixing bowl, combine flour, baking powder, sugar, and a pinch of salt.",
     "StepNumber": 1,
-    "PostId": 6
+    "PostId": "57fecb9c-244f-4199-af07-45c2dcb6fd87"
   },
   {
     "Instruction": "In a separate bowl, whisk together milk, eggs, and melted butter.",
     "StepNumber": 2,
-    "PostId": 6
+    "PostId": "57fecb9c-244f-4199-af07-45c2dcb6fd87"
   },
   {
     "Instruction": "Pour the wet ingredients into the dry ingredients and whisk until smooth.",
     "StepNumber": 3,
-    "PostId": 6
+    "PostId": "57fecb9c-244f-4199-af07-45c2dcb6fd87"
   },
   {
     "Instruction": "Heat a non-stick pan over medium heat. Pour ¼ cup of batter for each pancake.",
     "StepNumber": 4,
-    "PostId": 6
+    "PostId": "57fecb9c-244f-4199-af07-45c2dcb6fd87"
   },
   {
     "Instruction": "Cook until bubbles form on the surface, then flip and cook the other side until golden brown.",
     "StepNumber": 5,
-    "PostId": 6
+    "PostId": "57fecb9c-244f-4199-af07-45c2dcb6fd87"
   },
   {
     "Instruction": "Serve the pancakes warm with your favorite toppings, such as maple syrup or fresh fruits.",
     "StepNumber": 6,
-    "PostId": 6
+    "PostId": "57fecb9c-244f-4199-af07-45c2dcb6fd87"
   },
   {
     "Instruction": "Preheat the oven to 350°F (175°C).",
     "StepNumber": 1,
-    "PostId": 7
+    "PostId": "2bac3382-5ca0-4444-a216-9ecedde14677"
   },
   {
     "Instruction": "In a large bowl, combine ground beef, breadcrumbs, minced onions, and seasonings. Mix well.",
     "StepNumber": 2,
-    "PostId": 7
+    "PostId": "2bac3382-5ca0-4444-a216-9ecedde14677"
   },
   {
     "Instruction": "Shape the beef mixture into a loaf and place it in a baking dish.",
     "StepNumber": 3,
-    "PostId": 7
+    "PostId": "2bac3382-5ca0-4444-a216-9ecedde14677"
   },
   {
     "Instruction": "In a small bowl, whisk together ketchup, brown sugar, and mustard. Pour the sauce over the meatloaf.",
     "StepNumber": 4,
-    "PostId": 7
+    "PostId": "2bac3382-5ca0-4444-a216-9ecedde14677"
   },
   {
     "Instruction": "Bake the meatloaf for 1 hour or until the internal temperature reaches 160°F (71°C).",
     "StepNumber": 5,
-    "PostId": 7
+    "PostId": "2bac3382-5ca0-4444-a216-9ecedde14677"
   },
   {
     "Instruction": "Let the meatloaf rest for a few minutes before slicing and serving.",
     "StepNumber": 6,
-    "PostId": 7
+    "PostId": "2bac3382-5ca0-4444-a216-9ecedde14677"
   },
   {
     "Instruction": "Preheat the grill to medium-high heat.",
     "StepNumber": 1,
-    "PostId": 8
+    "PostId": "d8d20259-4073-4afa-907a-5a653096cde3"
   },
   {
     "Instruction": "Season the beef steak with salt, pepper, and your favorite steak seasoning.",
     "StepNumber": 2,
-    "PostId": 8
+    "PostId": "d8d20259-4073-4afa-907a-5a653096cde3"
   },
   {
     "Instruction": "Grill the steak for 4-5 minutes per side for medium-rare, or adjust the cooking time to your desired doneness.",
     "StepNumber": 3,
-    "PostId": 8
+    "PostId": "d8d20259-4073-4afa-907a-5a653096cde3"
   },
   {
     "Instruction": "Remove the steak from the grill and let it rest for a few minutes.",
     "StepNumber": 4,
-    "PostId": 8
+    "PostId": "d8d20259-4073-4afa-907a-5a653096cde3"
   },
   {
     "Instruction": "Slice the steak against the grain and serve.",
     "StepNumber": 5,
-    "PostId": 8
+    "PostId": "d8d20259-4073-4afa-907a-5a653096cde3"
   },
   {
     "Instruction": "Preheat the oven to 375°F (190°C).",
     "StepNumber": 1,
-    "PostId": 9
+    "PostId": "9869eba4-6189-460e-ac2f-481944d5599f"
   },
   {
     "Instruction": "Place the pork chops in a baking dish and season with salt, pepper, and your favorite spices.",
     "StepNumber": 2,
-    "PostId": 9
+    "PostId": "9869eba4-6189-460e-ac2f-481944d5599f"
   },
   {
     "Instruction": "In a small bowl, mix together melted butter, minced garlic, and chopped herbs. Pour the mixture over the pork chops.",
     "StepNumber": 3,
-    "PostId": 9
+    "PostId": "9869eba4-6189-460e-ac2f-481944d5599f"
   },
   {
     "Instruction": "Bake the pork chops for 20-25 minutes or until the internal temperature reaches 145°F (63°C).",
     "StepNumber": 4,
-    "PostId": 9
+    "PostId": "9869eba4-6189-460e-ac2f-481944d5599f"
   },
   {
     "Instruction": "Remove the pork chops from the oven and let them rest for a few minutes before serving.",
     "StepNumber": 5,
-    "PostId": 9
+    "PostId": "9869eba4-6189-460e-ac2f-481944d5599f"
   },
   {
     "Instruction": "In a large pot, bring water to a boil. Add rice and cook according to the package instructions.",
     "StepNumber": 1,
-    "PostId": 10
+    "PostId": "35a1b6b4-f48a-44e1-85cd-8ebb94f5fe96"
   },
   {
     "Instruction": "In a skillet, heat olive oil over medium heat. Add minced garlic and sauté until fragrant.",
     "StepNumber": 2,
-    "PostId": 10
+    "PostId": "35a1b6b4-f48a-44e1-85cd-8ebb94f5fe96"
   },
   {
     "Instruction": "Add diced onions, bell peppers, and sliced carrots to the skillet. Sauté until the vegetables are tender.",
     "StepNumber": 3,
-    "PostId": 10
+    "PostId": "35a1b6b4-f48a-44e1-85cd-8ebb94f5fe96"
   },
   {
     "Instruction": "Push the vegetables to one side of the skillet. Add shrimp to the other side and cook until pink and cooked through.",
     "StepNumber": 4,
-    "PostId": 10
+    "PostId": "35a1b6b4-f48a-44e1-85cd-8ebb94f5fe96"
   },
   {
     "Instruction": "Add cooked rice to the skillet and stir to combine. Season with soy sauce and stir-fry for a few minutes.",
     "StepNumber": 5,
-    "PostId": 10
+    "PostId": "35a1b6b4-f48a-44e1-85cd-8ebb94f5fe96"
   },
   {
     "Instruction": "Serve the seafood fish with rice hot and garnish with chopped green onions.",
     "StepNumber": 6,
-    "PostId": 10
+    "PostId": "35a1b6b4-f48a-44e1-85cd-8ebb94f5fe96"
   },
   {
     "Instruction": "In a large bowl, combine diced chicken, lettuce, cherry tomatoes, sliced cucumbers, and shredded carrots.",
     "StepNumber": 1,
-    "PostId": 11
+    "PostId": "1abe3745-8203-4022-92c7-7041db2b5f2c"
   },
   {
     "Instruction": "In a small bowl, whisk together olive oil, lemon juice, Dijon mustard, honey, salt, and pepper to make the dressing.",
     "StepNumber": 2,
-    "PostId": 11
+    "PostId": "1abe3745-8203-4022-92c7-7041db2b5f2c"
   },
   {
     "Instruction": "Drizzle the dressing over the salad and toss to combine.",
     "StepNumber": 3,
-    "PostId": 11
+    "PostId": "1abe3745-8203-4022-92c7-7041db2b5f2c"
   },
   {
     "Instruction": "Sprinkle with grated Parmesan cheese and croutons.",
     "StepNumber": 4,
-    "PostId": 11
+    "PostId": "1abe3745-8203-4022-92c7-7041db2b5f2c"
   },
   {
     "Instruction": "Serve the chicken salad as a refreshing and healthy meal.",
     "StepNumber": 5,
-    "PostId": 11
+    "PostId": "1abe3745-8203-4022-92c7-7041db2b5f2c"
   },
   {
     "Instruction": "In a large skillet, heat olive oil over medium heat. Add diced onions and minced garlic. Sauté until fragrant.",
     "StepNumber": 1,
-    "PostId": 12
+    "PostId": "92eaa4d7-61e5-4572-9d95-71e6330ac7af"
   },
   {
     "Instruction": "Add diced bell peppers, sliced chorizo, and saffron threads to the skillet. Sauté until the peppers are tender.",
     "StepNumber": 2,
-    "PostId": 12
+    "PostId": "92eaa4d7-61e5-4572-9d95-71e6330ac7af"
   },
   {
     "Instruction": "Stir in Arborio rice and cook for a few minutes until lightly toasted.",
     "StepNumber": 3,
-    "PostId": 12
+    "PostId": "92eaa4d7-61e5-4572-9d95-71e6330ac7af"
   },
   {
     "Instruction": "Add chicken broth, crushed tomatoes, and paprika. Bring to a simmer.",
     "StepNumber": 4,
-    "PostId": 12
+    "PostId": "92eaa4d7-61e5-4572-9d95-71e6330ac7af"
   },
   {
     "Instruction": "Cover the skillet and cook for 15-20 minutes or until the rice is tender and the liquid is absorbed.",
     "StepNumber": 5,
-    "PostId": 12
+    "PostId": "92eaa4d7-61e5-4572-9d95-71e6330ac7af"
   },
   {
     "Instruction": "Gently fold in cooked shrimp, mussels, and peas. Cook for an additional 5 minutes or until the seafood is cooked through.",
     "StepNumber": 6,
-    "PostId": 12
+    "PostId": "92eaa4d7-61e5-4572-9d95-71e6330ac7af"
   },
   {
     "Instruction": "Serve the seafood paella hot, garnished with chopped parsley.",
     "StepNumber": 7,
-    "PostId": 12
+    "PostId": "92eaa4d7-61e5-4572-9d95-71e6330ac7af"
   },
   {
     "Instruction": "In a large bowl, combine mixed greens, cherry tomatoes, sliced cucumbers, and crumbled feta cheese.",
     "StepNumber": 1,
-    "PostId": 14
+    "PostId": "e5a898ed-69c8-4058-adb4-d676571d6dec"
   },
   {
     "Instruction": "In a small bowl, whisk together olive oil, lemon juice, Dijon mustard, honey, salt, and pepper to make the dressing.",
     "StepNumber": 2,
-    "PostId": 14
+    "PostId": "e5a898ed-69c8-4058-adb4-d676571d6dec"
   },
   {
     "Instruction": "Drizzle the dressing over the salad and toss to combine.",
     "StepNumber": 3,
-    "PostId": 14
+    "PostId": "e5a898ed-69c8-4058-adb4-d676571d6dec"
   },
   {
     "Instruction": "Season the salmon fillets with salt, pepper, and a squeeze of lemon juice.",
     "StepNumber": 4,
-    "PostId": 14
+    "PostId": "e5a898ed-69c8-4058-adb4-d676571d6dec"
   },
   {
     "Instruction": "In a non-stick skillet, heat olive oil over medium heat. Add the salmon fillets, skin-side down, and cook for 3-4 minutes per side.",
     "StepNumber": 5,
-    "PostId": 14
+    "PostId": "e5a898ed-69c8-4058-adb4-d676571d6dec"
   },
   {
     "Instruction": "Serve the cooked salmon fillets over the salad and garnish with edamame beans.",
     "StepNumber": 6,
-    "PostId": 14
+    "PostId": "e5a898ed-69c8-4058-adb4-d676571d6dec"
   },
   {
     "Instruction": "In a small bowl, whisk together olive oil, lemon juice, minced garlic, Dijon mustard, salt, and pepper to make the dressing.",
     "StepNumber": 1,
-    "PostId": 15
+    "PostId": "f28c86a8-f49e-4f98-8941-40bb2aba363f"
   },
   {
     "Instruction": "In a large bowl, combine diced cooked chicken, sliced cherry tomatoes, diced cucumber, and chopped fresh herbs.",
     "StepNumber": 2,
-    "PostId": 15
+    "PostId": "f28c86a8-f49e-4f98-8941-40bb2aba363f"
   },
   {
     "Instruction": "Pour the dressing over the chicken mixture and toss to coat.",
     "StepNumber": 3,
-    "PostId": 15
+    "PostId": "f28c86a8-f49e-4f98-8941-40bb2aba363f"
   },
   {
     "Instruction": "Spread a spoonful of hummus on each tortilla. Place a scoop of the chicken salad on top.",
     "StepNumber": 4,
-    "PostId": 15
+    "PostId": "f28c86a8-f49e-4f98-8941-40bb2aba363f"
   },
   {
     "Instruction": "Roll up the tortillas tightly and slice into bite-sized wraps.",
     "StepNumber": 5,
-    "PostId": 15
+    "PostId": "f28c86a8-f49e-4f98-8941-40bb2aba363f"
   },
   {
     "Instruction": "Serve the chicken wraps as a delicious and portable meal.",
     "StepNumber": 6,
-    "PostId": 15
+    "PostId": "f28c86a8-f49e-4f98-8941-40bb2aba363f"
   },
   {
     "Instruction": "Preheat the oven to 375°F (190°C).",
     "StepNumber": 1,
-    "PostId": 16
+    "PostId": "f9ad4f06-b087-4f4c-b0ee-91f121280f82"
   },
   {
     "Instruction": "In a small bowl, combine brown sugar, paprika, chili powder, garlic powder, salt, and pepper to make the rub.",
     "StepNumber": 2,
-    "PostId": 16
+    "PostId": "f9ad4f06-b087-4f4c-b0ee-91f121280f82"
   },
   {
     "Instruction": "Rub the spice mixture all over the beef ribs, coating them evenly.",
     "StepNumber": 3,
-    "PostId": 16
+    "PostId": "f9ad4f06-b087-4f4c-b0ee-91f121280f82"
   },
   {
     "Instruction": "Place the ribs on a baking sheet and bake for 2-3 hours or until tender and the meat is falling off the bone.",
     "StepNumber": 4,
-    "PostId": 16
+    "PostId": "f9ad4f06-b087-4f4c-b0ee-91f121280f82"
   },
   {
     "Instruction": "Remove the beef ribs from the oven and let them rest for a few minutes before serving.",
     "StepNumber": 5,
-    "PostId": 16
+    "PostId": "f9ad4f06-b087-4f4c-b0ee-91f121280f82"
   },
   {
     "Instruction": "In a large pot, bring salted water to a boil. Cook the pasta until al dente.",
     "StepNumber": 1,
-    "PostId": 17
+    "PostId": "180024a7-aa76-4e91-9697-df0fd82155d8"
   },
   {
     "Instruction": "In a skillet, heat olive oil over medium heat. Add minced garlic and sauté until fragrant.",
     "StepNumber": 2,
-    "PostId": 17
+    "PostId": "180024a7-aa76-4e91-9697-df0fd82155d8"
   },
   {
     "Instruction": "Add diced tomatoes, tomato paste, and Italian seasoning to the skillet. Simmer for 10 minutes.",
     "StepNumber": 3,
-    "PostId": 17
+    "PostId": "180024a7-aa76-4e91-9697-df0fd82155d8"
   },
   {
     "Instruction": "Add cooked pasta to the skillet and toss to coat. Cook for an additional 2 minutes to heat through.",
     "StepNumber": 4,
-    "PostId": 17
+    "PostId": "180024a7-aa76-4e91-9697-df0fd82155d8"
   },
   {
     "Instruction": "Serve the seafood pasta hot, garnished with chopped fresh parsley.",
     "StepNumber": 5,
-    "PostId": 17
+    "PostId": "180024a7-aa76-4e91-9697-df0fd82155d8"
   },
   {
     "Instruction": "Preheat the grill to medium-high heat.",
     "StepNumber": 1,
-    "PostId": 18
+    "PostId": "4a8d6c79-fca3-43ba-b625-8e3a8f1d8839"
   },
   {
     "Instruction": "Season the pork chops with salt, pepper, and your favorite spices.",
     "StepNumber": 2,
-    "PostId": 18
+    "PostId": "4a8d6c79-fca3-43ba-b625-8e3a8f1d8839"
   },
   {
     "Instruction": "Grill the pork chops for 4-5 minutes per side or until the internal temperature reaches 145°F (63°C).",
     "StepNumber": 3,
-    "PostId": 18
+    "PostId": "4a8d6c79-fca3-43ba-b625-8e3a8f1d8839"
   },
   {
     "Instruction": "In a small bowl, whisk together honey, Dijon mustard, and apple cider vinegar to make the glaze.",
     "StepNumber": 4,
-    "PostId": 18
+    "PostId": "4a8d6c79-fca3-43ba-b625-8e3a8f1d8839"
   },
   {
     "Instruction": "Brush the glaze onto the grilled pork chops and let them rest for a few minutes before serving.",
     "StepNumber": 5,
-    "PostId": 18
+    "PostId": "4a8d6c79-fca3-43ba-b625-8e3a8f1d8839"
   },
   {
     "Instruction": "Preheat the oven to 375°F (190°C).",
     "StepNumber": 1,
-    "PostId": 19
+    "PostId": "9210586f-2aa6-48a0-aad8-50a9b950aed5"
   },
   {
     "Instruction": "Place the fish fillets in a baking dish and season with salt, pepper, and your favorite herbs and spices.",
     "StepNumber": 2,
-    "PostId": 19
+    "PostId": "9210586f-2aa6-48a0-aad8-50a9b950aed5"
   },
   {
     "Instruction": "In a small bowl, combine melted butter, lemon juice, minced garlic, and chopped fresh herbs. Pour the mixture over the fish fillets.",
     "StepNumber": 3,
-    "PostId": 19
+    "PostId": "9210586f-2aa6-48a0-aad8-50a9b950aed5"
   },
   {
     "Instruction": "Bake the fish for 15-20 minutes or until it flakes easily with a fork.",
     "StepNumber": 4,
-    "PostId": 19
+    "PostId": "9210586f-2aa6-48a0-aad8-50a9b950aed5"
   },
   {
     "Instruction": "Serve the baked fish hot, garnished with lemon slices and fresh herbs.",
     "StepNumber": 5,
-    "PostId": 19
+    "PostId": "9210586f-2aa6-48a0-aad8-50a9b950aed5"
   }
 ]

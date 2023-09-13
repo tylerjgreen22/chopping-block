@@ -7,7 +7,7 @@
             <app-text-input [formControl]="addForm.controls['picture']" [label]="'Picture'"></app-text-input>
             <select class="form-select" id="recipeCategory" formControlName='recipeCategory'>
                 <option value="" disabled selected>Select a category</option>
-                <option *ngFor="let category of categories" [value]="category.id">{{category.category}}</option>
+                <option *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>
             </select>
             <div class="d-grid">
                 <button [disabled]="addForm.invalid" class="btn btn-lg btn-primary mt-3" type="submit">Add

@@ -24,6 +24,18 @@ namespace Infrastructure.Data
             builder.Entity<Like>()
                 .HasIndex(l => new { l.PostId, l.UserId })
                 .IsUnique();
+
+            builder.Entity<Post>()
+                .HasMany(p => p.Steps)
+                .WithOne(s => s.Post)
+                .HasForeignKey(s => s.PostId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.Entity<Post>()
+                .HasMany(p => p.Likes)
+                .WithOne(l => l.Post)
+                .HasForeignKey(l => l.PostId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

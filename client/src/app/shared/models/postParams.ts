@@ -5,4 +5,5 @@ export class PostParams {
   pageIndex = 1;
   pageSize = 6;
   search = '';
+  userId = '';
 }

@@ -7,7 +7,7 @@
             <h5>Categories</h5>
             <select class="form-select mb-4" (change)="onCategorySelected($event)">
                 <option class="list-group-item" *ngFor="let category of categories" [value]="category.id">
-                    {{category.category}}
+                    {{category.name}}
                 </option>
             </select>
         </div>

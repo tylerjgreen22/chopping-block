@@ -1,26 +1,26 @@
 [
   {
-    "Id": 1,
+    "Id": "c61e4614-4437-40d8-a793-6d5bf3565b5e",
     "Name": "Beef"
   },
   {
-    "Id": 2,
+    "Id": "684fea6f-b4c7-424b-988f-48099d40c5d4",
     "Name": "Chicken"
   },
   {
-    "Id": 3,
+    "Id": "5d5410bb-7f8a-459c-a919-46be10c90c4b",
     "Name": "Pork"
   },
   {
-    "Id": 4,
+    "Id": "6bcb2065-f1df-4673-acd3-3a3e8edbacc4",
     "Name": "Seafood"
   },
   {
-    "Id": 5,
+    "Id": "cf666a5f-e7db-4dcc-a49e-4c69d144785d",
     "Name": "Vegetarian"
   },
   {
-    "Id": 6,
+    "Id": "f46b3ca7-b897-43e7-850c-ebd88ba5c5d8",
     "Name": "Other"
   }
 ]

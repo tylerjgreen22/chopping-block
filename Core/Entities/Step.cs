@@ -6,6 +6,6 @@ namespace Core.Entities
         public string Instruction { get; set; }
         public int StepNumber { get; set; }
         public Post Post { get; set; }
-        public int PostId { get; set; }
+        public string PostId { get; set; }
     }
 }

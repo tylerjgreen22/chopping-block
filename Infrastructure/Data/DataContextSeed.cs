@@ -54,6 +54,10 @@ namespace Infrastructure.Data
             {
                 var stepsData = File.ReadAllText("../Infrastructure/Data/SeedData/steps.json");
                 var steps = JsonSerializer.Deserialize<List<Step>>(stepsData);
+                foreach (var step in steps)
+                {
+                    step.Id = Guid.NewGuid().ToString();
+                }
                 context.Steps.AddRange(steps);
             }
 

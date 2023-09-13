@@ -9,9 +9,15 @@ namespace API.Helpers
     {
         public MappingProfiles()
         {
+            CreateMap<Post, PostListToReturnDto>()
+                .ForMember(d => d.Category, o => o.MapFrom(s => s.Category.Name))
+                .ForMember(d => d.Likes, o => o.MapFrom(s => s.Likes.Count))
+                .ForMember(d => d.User, o => o.MapFrom(s => s.User.UserName));
             CreateMap<Post, PostToReturnDto>()
                 .ForMember(d => d.Category, o => o.MapFrom(s => s.Category.Name))
-                .ForMember(d => d.Picture, o => o.MapFrom<PostUrlResolver>());
+                .ForMember(d => d.Likes, o => o.MapFrom(s => s.Likes.Count))
+                .ForMember(d => d.User, o => o.MapFrom(s => s.User.UserName));
+            CreateMap<PostDto, Post>();
 
             CreateMap<Step, StepToReturnDto>();
         }

@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
   getCategories() {
     this.homeService.getCategories().subscribe({
       next: (response) =>
-        (this.categories = [{ id: 0, category: 'All' }, ...response]),
+        (this.categories = [{ id: 0, name: 'All' }, ...response]),
       error: (error) => console.log(error),
     });
   }

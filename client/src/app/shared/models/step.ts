@@ -1,6 +1,6 @@
 // Interface for recipe steps
 export interface Step {
   id: number;
-  step: string;
+  instruction: string;
   stepNumber: number;
 }

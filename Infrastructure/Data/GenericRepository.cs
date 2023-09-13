@@ -30,74 +30,16 @@ namespace Infrastructure.Data
             return await _context.Set<T>().ToListAsync();
         }
 
-        // Retrieves an item from the database using the provided specification
-        public async Task<T> GetEntityWithSpec(ISpecification<T> spec)
-        {
-            return await ApplySpecification(spec).FirstOrDefaultAsync();
-        }
-
         // Retrieves a list of items from the database using the provided specification
         public async Task<IReadOnlyList<T>> ListAsync(ISpecification<T> spec)
         {
             return await ApplySpecification(spec).ToListAsync();
         }
 
-        public async Task<T> CreateAsync(T entity)
+        // Retrieves an item from the database using the provided specification
+        public async Task<T> GetEntityWithSpecAsync(ISpecification<T> spec)
         {
-            _context.Set<T>().Add(entity);
-            await _context.SaveChangesAsync();
-            return entity;
-        }
-
-        public async Task<ICollection<T>> CreateManyAsync(ICollection<T> entities)
-        {
-            _context.Set<T>().AddRange(entities);
-            await _context.SaveChangesAsync();
-            return entities;
-        }
-
-        public async Task<T> UpdateAsync(int id, T entity)
-        {
-            var entityToUpdate = await _context.Set<T>().FindAsync(id);
-            _context.Entry(entityToUpdate).CurrentValues.SetValues(entity);
-            _context.Entry(entityToUpdate).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
-            return entityToUpdate;
-        }
-
-        public async Task<ICollection<T>> UpdateManyAsync(ISpecification<T> spec, ICollection<T> entities)
-        {
-            var existingEntities = await ApplySpecification(spec).ToListAsync();
-            var entityIds = entities.Select(e => e.Id).ToList();
-
-            foreach (var entity in entities)
-            {
-                var entityToUpdate = await _context.Set<T>().FindAsync(entity.Id);
-                if (entityToUpdate != null)
-                {
-                    _context.Entry(entityToUpdate).CurrentValues.SetValues(entity);
-                    _context.Entry(entityToUpdate).State = EntityState.Modified;
-                }
-                else
-                {
-                    _context.Set<T>().Add(entity);
-                }
-
-            }
-
-            var entitiesToDelete = existingEntities.Where(e => !entityIds.Contains(e.Id)).ToList();
-            _context.Set<T>().RemoveRange(entitiesToDelete);
-
-            await _context.SaveChangesAsync();
-            return entities;
-        }
-
-        public async Task<T> DeleteAsync(int id)
-        {
-            var entityToRemove = await _context.Set<T>().FindAsync(id);
-            _context.Remove(entityToRemove);
-            await _context.SaveChangesAsync();
-            return entityToRemove;
+            return await ApplySpecification(spec).AsSplitQuery().FirstOrDefaultAsync();
         }
 
         // Counts the total items retrieved based on filter specification
@@ -106,10 +48,28 @@ namespace Infrastructure.Data
             return await ApplySpecification(spec).CountAsync();
         }
 
+        public void Create(T entity)
+        {
+            _context.Set<T>().Add(entity);
+        }
+
+        public void Update(T entity)
+        {
+            _context.Set<T>().Attach(entity);
+            _context.Entry(entity).State = EntityState.Modified;
+        }
+
+        public void Delete(T entity)
+        {
+            _context.Set<T>().Remove(entity);
+        }
+
         // Helper function that applies the specifications to a query on a database and returns the resulting query
         private IQueryable<T> ApplySpecification(ISpecification<T> spec)
         {
             return SpecificationEvaluator<T>.GetQuery(_context.Set<T>().AsQueryable(), spec);
         }
+
+
     }
 }

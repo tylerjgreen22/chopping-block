@@ -1,7 +1,6 @@
 namespace API.Dtos
 {
-    // DTO for the Recipe Post entity, flattens Category and removes steps list and recipe category id
-    public class PostToReturnDto
+    public class PostListToReturnDto
     {
         public string Id { get; set; }
         public string Title { get; set; }
@@ -10,6 +9,5 @@ namespace API.Dtos
         public string Category { get; set; }
         public string User { get; set; }
         public int Likes { get; set; }
-        public ICollection<StepToReturnDto> Steps { get; set; }
     }
 }

@@ -1,12 +1,10 @@
-using Core.Entities;
-
 namespace Core.Specifications
 {
     /* 
     This class is the represents the potential query parameters that can be used by the post specification to apply various operations such as 
     sorting, filtering, searching and pagination
     */
-    public class PostSpecParams
+    public class PostParams
     {
         private const int MaxPageSize = 50;
         private int _pageSize = 6;
@@ -18,7 +16,7 @@ namespace Core.Specifications
             get => _pageSize;
             set => _pageSize = (value > MaxPageSize) ? MaxPageSize : value;
         }
-        public int? CategoryId { get; set; }
+        public string CategoryId { get; set; }
         public string Sort { get; set; }
         public string Search
         {

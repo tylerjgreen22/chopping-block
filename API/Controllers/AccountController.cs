@@ -29,9 +29,6 @@ namespace API.Controllers
         // Get a user using the claims within the token
         [Authorize]
         [HttpGet]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
-        [ProducesResponseType(typeof(ApiException), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<UserDto>> GetCurrentUser()
         {
             var user = await _userManager.FindUserByEmailClaimsPrinciple(User);
@@ -46,8 +43,6 @@ namespace API.Controllers
 
         // Check if an email is already in use
         [HttpGet("emailexists")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(ApiException), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<bool>> CheckEmailExists([FromQuery] string email)
         {
             return await _userManager.FindByEmailAsync(email) != null;
@@ -55,9 +50,6 @@ namespace API.Controllers
 
         // Login a user using the information passed in. If successful, returns a user DTO with the relevant information
         [HttpPost("login")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status401Unauthorized)]
-        [ProducesResponseType(typeof(ApiException), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
         {
             var user = await _userManager.FindByEmailAsync(loginDto.Email);
@@ -78,9 +70,6 @@ namespace API.Controllers
 
         // Register a user using the information passed in. If successful, returns a user DTO
         [HttpPost("register")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(ApiValidationErrorResponse), StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(typeof(ApiException), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
         {
             if (CheckEmailExists(registerDto.Email).Result.Value)

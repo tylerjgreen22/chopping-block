@@ -4,5 +4,5 @@ export interface Post {
   title: string;
   description: string;
   picture: string;
-  recipeCategory: string;
+  category: string;
 }

@@ -11,5 +11,6 @@ import { HomeRoutingModule } from './home-routing.module';
 @NgModule({
   declarations: [HomeComponent, PostComponent, PostDetailComponent],
   imports: [CommonModule, SharedModule, HomeRoutingModule],
+  exports: [PostComponent],
 })
 export class HomeModule {}

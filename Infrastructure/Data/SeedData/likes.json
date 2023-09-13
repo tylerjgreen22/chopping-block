@@ -1,26 +1,32 @@
 [
   {
-    "PostId": 1,
+    "Id": "5b16ca76-f173-4cb9-97fb-36670df5d1ef",
+    "PostId": "2830f631-79d1-4596-80f6-ea016ee023d5",
     "UserId": "1678a7d9-72cf-40d7-9eaa-86c5141c8b21"
   },
   {
-    "PostId": 1,
+    "Id": "52e8a734-0748-4b20-b315-c598dbd1a4f1",
+    "PostId": "2830f631-79d1-4596-80f6-ea016ee023d5",
     "UserId": "ff186661-6fc6-4072-87c8-6e24468a906f"
   },
   {
-    "PostId": 1,
+    "Id": "b9f36167-ea43-43ba-80dd-44e065e58fd1",
+    "PostId": "2830f631-79d1-4596-80f6-ea016ee023d5",
     "UserId": "307efb87-ccbb-4c2f-a4fb-a89270c670fb"
   },
   {
-    "PostId": 2,
+    "Id": "7087ea0c-280e-49ca-841d-42504b651f60",
+    "PostId": "ed76234f-18cd-43d2-b364-202345e62d2c",
     "UserId": "1678a7d9-72cf-40d7-9eaa-86c5141c8b21"
   },
   {
-    "PostId": 2,
+    "Id": "a59ba169-ad64-4af0-87f5-47600dc3b97b",
+    "PostId": "ed76234f-18cd-43d2-b364-202345e62d2c",
     "UserId": "ff186661-6fc6-4072-87c8-6e24468a906f"
   },
   {
-    "PostId": 3,
+    "Id": "7d938125-d628-4bf3-9644-79560ada14bf",
+    "PostId": "3a7bc996-f2b8-4222-962a-b3c0c47643fc",
     "UserId": "1678a7d9-72cf-40d7-9eaa-86c5141c8b21"
   }
 ]
