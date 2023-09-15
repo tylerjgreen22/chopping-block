@@ -12,6 +12,14 @@ namespace API.Controllers
             _likeService = likeService;
         }
 
+        [HttpGet("{postId}")]
+        public async Task<IActionResult> CheckLike(string postId)
+        {
+            var like = await _likeService.CheckLike(postId);
+
+            return Ok(like);
+        }
+
         [HttpPost("{postId}")]
         public async Task<IActionResult> CreateLike(string postId)
         {

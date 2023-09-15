@@ -1,6 +1,5 @@
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
-using Infrastructure.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
 
@@ -27,7 +26,7 @@ namespace Infrastructure.Images
                 var uploadParams = new ImageUploadParams
                 {
                     File = new FileDescription(file.FileName, stream),
-                    Transformation = new Transformation().Height(400).Width(600).Crop("fill")
+                    Transformation = new Transformation().Height(400).Width(640).Crop("fill")
                 };
 
                 var uploadResult = await _cloudinary.UploadAsync(uploadParams);

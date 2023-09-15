@@ -13,5 +13,12 @@ namespace Core.Specifications
                 (string.IsNullOrEmpty(postParams.CategoryId) || x.CategoryId == postParams.CategoryId)
             )
         { }
+
+        public PostCountSpecification(PostParams postParams, string userId)
+            : base(x =>
+                (string.IsNullOrEmpty(postParams.Search) || x.Title.ToLower().Contains(postParams.Search)) &&
+                (string.IsNullOrEmpty(postParams.CategoryId) || x.CategoryId == postParams.CategoryId) && (x.UserId == userId)
+            )
+        { }
     }
 }

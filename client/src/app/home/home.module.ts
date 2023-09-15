@@ -2,15 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { HomeComponent } from './home.component';
-import { PostComponent } from './post/post.component';
 import { SharedModule } from '../shared/shared.module';
-import { PostDetailComponent } from './post-detail/post-detail.component';
 import { HomeRoutingModule } from './home-routing.module';
+import { PostDetailComponent } from './post-detail/post-detail.component';
 
 //Home page module
 @NgModule({
-  declarations: [HomeComponent, PostComponent, PostDetailComponent],
+  declarations: [HomeComponent, PostDetailComponent],
   imports: [CommonModule, SharedModule, HomeRoutingModule],
-  exports: [PostComponent],
 })
 export class HomeModule {}

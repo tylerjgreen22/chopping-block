@@ -1,0 +1,20 @@
+<form [formGroup]="postForm">
+    <!-- Title, Description, Picture, CategoryId inputs go here -->
+    <div>
+        <input formControlName="title" placeholder="Title" />
+        <input formControlName="description" placeholder="Description" />
+        <input formControlName="picture" placeholder="Picture" />
+        <input formControlName="categoryId" placeholder="Category" />
+    </div>
+
+    <div formArrayName="steps">
+        <div *ngFor="let step of steps.controls; let i = index" [formGroupName]="i">
+            <input formControlName="instruction" placeholder="Instruction">
+            <input formControlName="stepNumber" placeholder="Step Number">
+            <button (click)="removeStep(i)">Remove</button>
+        </div>
+    </div>
+
+    <button (click)="addStep()">Add Step</button>
+    <button (click)="submitForm()">Submit</button>
+</form>

@@ -1,7 +1,7 @@
 using Core.Entities;
 using Core.Interfaces;
 using Core.Specifications;
-using Infrastructure.Interfaces;
+using Infrastructure.Images;
 using Microsoft.AspNetCore.Http;
 
 namespace Infrastructure.Services

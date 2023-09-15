@@ -1,0 +1,53 @@
+<div class="container">
+    <!-- Filters section -->
+    <section class="row justify-content-center">
+
+        <!-- Categories filter -->
+        <div class="col-2">
+            <h5>Categories</h5>
+            <select class="form-select mb-4" (change)="onCategorySelected($event)">
+                <option class="list-group-item" *ngFor="let category of categories" [value]="category.id"
+                    [selected]="postParams.categoryId === category.id">
+                    {{category.name}}
+                </option>
+            </select>
+        </div>
+
+        <!-- Sort options filter -->
+        <div class="col-2">
+            <h5>Sort</h5>
+            <select class="form-select mb-4" (change)="onSortSelected($event)">
+                <option class="list-group-item" *ngFor="let sort of sortOptions" [value]="sort.value"
+                    [selected]="postParams.sort === sort.value">
+                    {{sort.name}}
+                </option>
+            </select>
+        </div>
+
+        <!-- Search filter -->
+        <div class="col-5">
+            <h5>Search</h5>
+            <div class="d-flex">
+                <input (keyup.enter)="onSearch()" type="text" placeholder="Search" class="form-control me-2" #search>
+                <button type="button" (click)="onSearch()" class="btn btn-primary mx-2">Search</button>
+                <button (click)="onReset()" class="btn btn-secondary">Reset</button>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Post feed section -->
+    <section class="row justify-content-center">
+        <div class="col-9">
+            <div *ngFor="let post of posts">
+                <app-post [post]="post" (likeClicked)="onLike($event)" (unlikeClicked)="onUnlike($event)"
+                    (deleteClicked)="onDelete($event)"></app-post>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pagination section -->
+    <section class="d-flex justify-content-center" *ngIf="totalCount">
+        <app-pagination [totalCount]="totalCount" [pageSize]="postParams.pageSize"
+            (pageChanged)="onPageChanged($event)"></app-pagination>
+    </section>

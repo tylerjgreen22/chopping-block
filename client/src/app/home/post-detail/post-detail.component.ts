@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Post } from 'src/app/shared/models/post';
-import { HomeService } from '../home.service';
 import { ActivatedRoute } from '@angular/router';
+import { Post } from 'src/app/shared/models/post';
 import { Step } from 'src/app/shared/models/step';
+import { PostService } from 'src/app/shared/post.service';
 
 // Component to show details of an individual post
 @Component({
@@ -16,35 +16,27 @@ export class PostDetailComponent implements OnInit {
 
   // Injecting home service to access backend and route to grab id from route params
   constructor(
-    private homeService: HomeService,
-    private activatedRoute: ActivatedRoute
+    private postService: PostService,
+    private route: ActivatedRoute
   ) {}
 
   // On page load, loads the individual product using class method
   ngOnInit(): void {
     this.loadPost();
-    this.loadSteps();
   }
 
   // Grabs id from route params, uses home service with Id (casted to int with +) to retrieve post
   loadPost() {
-    const id = this.activatedRoute.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('id');
 
     if (id) {
-      this.homeService.getPost(+id).subscribe({
-        next: (post) => (this.post = post),
-        error: (error) => console.log(error),
-      });
-    }
-  }
-
-  // Grabs id from route params, uses home service with Id to retrieve steps
-  loadSteps() {
-    const id = this.activatedRoute.snapshot.paramMap.get('id');
-
-    if (id) {
-      this.homeService.getRecipeSteps(+id).subscribe({
-        next: (steps) => (this.steps = steps),
+      this.postService.getPost(id).subscribe({
+        next: (post) => {
+          this.post = post;
+          this.steps = post.steps.sort((a, b) => {
+            return a.stepNumber - b.stepNumber;
+          });
+        },
         error: (error) => console.log(error),
       });
     }

@@ -198,6 +198,7 @@ namespace Infrastructure.Migrations
                     Picture = table.Column<string>(type: "TEXT", nullable: true),
                     CategoryId = table.Column<string>(type: "TEXT", nullable: true),
                     UserId = table.Column<string>(type: "TEXT", nullable: true),
+                    IsLiked = table.Column<bool>(type: "INTEGER", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>

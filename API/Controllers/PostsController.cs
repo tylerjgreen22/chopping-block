@@ -46,6 +46,12 @@ namespace API.Controllers
             return Ok(new Pagination<PostListToReturnDto>(postParams.PageIndex, postParams.PageSize, totalItems, data));
         }
 
+        // [HttpGet("user")]
+        // public async Task<ActionResult<PostToReturnDto>> GetUserPosts([FromQuery] PostParams postParams)
+        // {
+        //     var posts = await _postService;
+        // }
+
         // Route to retrieve single post from repository and return the post.
         [HttpGet("{id}")]
         public async Task<ActionResult<PostToReturnDto>> GetPost(string id)

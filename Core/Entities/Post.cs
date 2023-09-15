@@ -15,5 +15,6 @@ namespace Core.Entities
         public string UserId { get; set; }
         public AppUser User { get; set; }
         public ICollection<Like> Likes { get; set; }
+        public bool IsLiked { get; set; } = false;
     }
 }

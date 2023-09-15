@@ -13,6 +13,18 @@ namespace Infrastructure.Services
             _unitOfWork = unitOfWork;
             _userAccessor = userAccessor;
         }
+        public async Task<bool> CheckLike(string postId)
+        {
+            var user = await _userAccessor.GetUser();
+            if (user == null) return false;
+
+            var spec = new LikeSpecification(postId, user.Id);
+            var exisitingLike = await _unitOfWork.Repository<Like>().GetEntityWithSpecAsync(spec);
+            if (exisitingLike == null) return false;
+
+            return true;
+        }
+
         public async Task<Like> CreateLike(string postId)
         {
             var user = await _userAccessor.GetUser();

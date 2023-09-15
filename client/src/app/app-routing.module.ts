@@ -15,6 +15,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./account/account.module').then((m) => m.AccountModule),
   },
+  {
+    path: 'posts',
+    loadChildren: () =>
+      import('./posts/posts.module').then((m) => m.PostsModule),
+  },
   { path: 'not-found', component: NotFoundComponent },
   { path: 'server-error', component: ServerErrorComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' },

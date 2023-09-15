@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { PostDetailComponent } from './post-detail/post-detail.component';
 import { HomeComponent } from './home.component';
+import { PostDetailComponent } from './post-detail/post-detail.component';
 
 //Routing module for home page
 const routes: Routes = [

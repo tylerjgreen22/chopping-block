@@ -156,6 +156,9 @@ namespace Infrastructure.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("TEXT");
 
+                    b.Property<bool>("IsLiked")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Picture")
                         .HasColumnType("TEXT");
 

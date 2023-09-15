@@ -12,7 +12,6 @@ namespace Core.Specifications
         // Constructor that creates a specification that utilizes any critieria passed via query parameters and uses the BaseSpecification helper methods to apply the critieria
         public PostListSpecification(PostParams postParams) : base(x =>
                 (string.IsNullOrEmpty(postParams.Search) || x.Title.ToLower().Contains(postParams.Search)) &&
-                (string.IsNullOrEmpty(postParams.UserId) || x.UserId == postParams.UserId) &&
                 (string.IsNullOrEmpty(postParams.CategoryId) || x.CategoryId == postParams.CategoryId)
             )
         {
@@ -26,8 +25,31 @@ namespace Core.Specifications
             {
                 switch (postParams.Sort)
                 {
-                    case "likesAsc":
-                        AddOrderBy(p => p.Likes.Count());
+                    case "newest":
+                        AddOrderByDescending(p => p.CreatedAt);
+                        break;
+                    case "likesDesc":
+                        AddOrderByDescending(p => p.Likes.Count());
+                        break;
+                    default:
+                        AddOrderBy(p => p.Title);
+                        break;
+                }
+            }
+        }
+
+        public PostListSpecification(PostParams postParams, string userId) : base(x => (string.IsNullOrEmpty(postParams.Search) || x.Title.ToLower().Contains(postParams.Search)) &&
+                (string.IsNullOrEmpty(postParams.CategoryId) || x.CategoryId == postParams.CategoryId) && (x.UserId == userId))
+        {
+            AddInclude(post => post.Category);
+            AddOrderBy(post => post.Title);
+            ApplyPaging(postParams.PageSize * (postParams.PageIndex - 1), postParams.PageSize);
+            if (!string.IsNullOrEmpty(postParams.Sort))
+            {
+                switch (postParams.Sort)
+                {
+                    case "newest":
+                        AddOrderByDescending(p => p.CreatedAt);
                         break;
                     case "likesDesc":
                         AddOrderByDescending(p => p.Likes.Count());

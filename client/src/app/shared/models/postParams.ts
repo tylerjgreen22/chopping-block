@@ -6,4 +6,5 @@ export class PostParams {
   pageSize = 6;
   search = '';
   userId = '';
+  byUser = false;
 }

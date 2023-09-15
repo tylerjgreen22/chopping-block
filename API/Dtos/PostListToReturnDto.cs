@@ -9,5 +9,6 @@ namespace API.Dtos
         public string Category { get; set; }
         public string User { get; set; }
         public int Likes { get; set; }
+        public bool IsLiked { get; set; }
     }
 }

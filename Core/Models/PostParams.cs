@@ -23,6 +23,6 @@ namespace Core.Models
             get => _search;
             set => _search = value.ToLower();
         }
-        public string UserId { get; set; }
+        public bool ByUser { get; set; }
     }
 }

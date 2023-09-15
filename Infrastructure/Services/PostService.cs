@@ -18,9 +18,28 @@ namespace Infrastructure.Services
         public async Task<IReadOnlyList<Post>> GetPostsAsync(PostParams postParams)
         {
             var spec = new PostListSpecification(postParams);
+            var user = await _userAccessor.GetUser();
+            if (postParams.ByUser)
+            {
+                
+                if (user == null) return null;
+                spec = new PostListSpecification(postParams, user.Id);
+            }
+                         
             var posts = await _unitOfWork.Repository<Post>().ListAsync(spec);
 
             if (posts == null) return null;
+
+            if (user != null)
+            {
+                foreach (var post in posts)
+                {
+                    var likeSpec = new LikeSpecification(post.Id, user.Id);
+                    var like = await _unitOfWork.Repository<Like>().GetEntityWithSpecAsync(likeSpec);
+                    if (like != null) post.IsLiked = true;
+                }
+                
+            }
 
             return posts;
 
@@ -29,6 +48,14 @@ namespace Infrastructure.Services
         public async Task<int> GetPostsCountAsync(PostParams postParams)
         {
             var countSpec = new PostCountSpecification(postParams);
+
+            if (postParams.ByUser)
+            {
+                var user = await _userAccessor.GetUser();
+                if (user == null) return 0;
+                countSpec = new PostCountSpecification(postParams, user.Id);
+            }
+
             var totalItems = await _unitOfWork.Repository<Post>().CountAsync(countSpec);
 
             return totalItems;

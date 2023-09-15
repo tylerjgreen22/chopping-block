@@ -1,7 +1,7 @@
 using Core.Entities;
 using Microsoft.AspNetCore.Http;
 
-namespace Infrastructure.Interfaces
+namespace Infrastructure.Images
 {
     public interface IImageService
     {

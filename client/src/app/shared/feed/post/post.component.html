@@ -1,0 +1,29 @@
+<article class="card mb-5" *ngIf="post">
+    <!-- Post picture -->
+    <div class="image position-relative" style="cursor: pointer;">
+        <img class="img" src="{{post.picture}}" alt="{{post.title}}">
+        <div class="d-flex align-items-center justify-content-center hover-overlay">
+            <ng-container *ngIf="this.router.url === '/'">
+                <button class="btn btn-primary me-2" routerLink="/post/{{post.id}}">View</button>
+                <button class="btn btn-primary" (click)="likePost()" *ngIf="!post.isLiked">Like</button>
+                <button class="btn btn-primary" (click)="unlikePost()" *ngIf="post.isLiked">Unlike</button>
+            </ng-container>
+            <ng-container *ngIf="this.router.url === '/posts'">
+                <button class="btn btn-primary me-2" routerLink="/posts/update/{{post.id}}">Update</button>
+                <button class="btn btn-primary" (click)="deletePost()">Delete</button>
+            </ng-container>
+        </div>
+    </div>
+
+    <!-- Post body -->
+    <div class="card-body">
+        <h4>{{post.title}}</h4>
+        <p class="card-text">{{post.description}}</p>
+    </div>
+
+    <div class="card-footer d-flex justify-content-between align-items-center">
+        <p *ngIf="this.router.url ==='/'" class="mb-0">Posted by {{post.user}}</p>
+        <p class="mb-0">{{post.likes}} likes</p>
+    </div>
+
+</article>

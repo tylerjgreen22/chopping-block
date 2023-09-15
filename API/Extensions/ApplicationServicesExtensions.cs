@@ -2,7 +2,6 @@ using API.Errors;
 using Core.Interfaces;
 using Infrastructure.Data;
 using Infrastructure.Images;
-using Infrastructure.Interfaces;
 using Infrastructure.Security;
 using Infrastructure.Services;
 using Microsoft.AspNetCore.Mvc;

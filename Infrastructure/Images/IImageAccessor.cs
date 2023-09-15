@@ -1,7 +1,7 @@
 using Core.Models;
 using Microsoft.AspNetCore.Http;
 
-namespace Infrastructure.Interfaces
+namespace Infrastructure.Images
 {
     public interface IImageAccessor
     {
