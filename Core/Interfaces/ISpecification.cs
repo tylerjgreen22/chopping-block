@@ -2,7 +2,7 @@ using System.Linq.Expressions;
 
 namespace Core.Interfaces
 {
-    // Interface that defines the contract that implementations of specifications must follow. Uses generics to allow for various types to be used
+    // Interface for creating specifications, used with the generic repository to specify query specifics
     public interface ISpecification<T>
     {
         Expression<Func<T, bool>> Criteria { get; }

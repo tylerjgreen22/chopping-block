@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { PostParams } from './models/postParams';
 import { Pagination } from './models/pagination';
@@ -61,7 +61,10 @@ export class PostService {
   uploadPicture(file: File) {
     const formData = new FormData();
     formData.append('file', file);
-    return this.http.post<string>(this.baseUrl + 'image', formData);
+    return this.http.post(this.baseUrl + 'image', formData, {
+      responseType: 'text',
+      observe: 'response',
+    });
   }
 
   deletePicture(id: string) {

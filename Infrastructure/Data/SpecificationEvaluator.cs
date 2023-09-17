@@ -14,7 +14,7 @@ namespace Infrastructure.Data
         {
             var query = inputQuery;
 
-            // Applying critieria to query if supplied
+            // Applying various supplied information from the specification to the query
             if (spec.Criteria != null)
             {
                 query = query.Where(spec.Criteria);
@@ -35,7 +35,6 @@ namespace Infrastructure.Data
                 query = query.Skip(spec.Skip).Take(spec.Take);
             }
 
-            // Applying includes to query
             query = spec.Includes.Aggregate(query, (current, include) => current.Include(include));
 
             return query;

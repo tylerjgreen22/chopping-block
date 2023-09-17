@@ -4,7 +4,7 @@ using Core.Models;
 namespace Core.Specifications
 {
     // This specification applies the criteria to the query based on the query params passed from the client. 
-    // Mainly used to obtain the count of items matching the filters provided
+    // Used to obtain the count of items matching the filters provided
     public class PostCountSpecification : BaseSpecification<Post>
     {
         public PostCountSpecification(PostParams postParams)

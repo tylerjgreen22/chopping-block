@@ -6,8 +6,10 @@ using Microsoft.AspNetCore.Http;
 
 namespace Infrastructure.Services
 {
+    // Image service, responsible for uploading and deleting images from Cloudinary and local DB
     public class ImageService : IImageService
     {
+        // Injecting user accessor, image accessor and unit of work
         private readonly IUserAccessor _userAccessor;
         private readonly IImageAccessor _imageAccessor;
         private readonly IUnitOfWork _unitOfWork;
@@ -18,6 +20,7 @@ namespace Infrastructure.Services
             _unitOfWork = unitOfWork;
         }
 
+        // Add incoming image to DB and Cloudinary
         public async Task<Image> AddImageAsync(IFormFile file)
         {
             var user = await _userAccessor.GetUser();
@@ -41,6 +44,7 @@ namespace Infrastructure.Services
             return image;
         }
 
+        // Delete image from Cloudinary and DB
         public async Task<bool> DeleteImageAsync(string id)
         {
             var result = await _imageAccessor.DeleteImage(id);

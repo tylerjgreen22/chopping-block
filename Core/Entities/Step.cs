@@ -1,6 +1,6 @@
 namespace Core.Entities
 {
-    // The recipe step entity, representing the steps in a recipe. Has a foreign key relationship with the Recipe post entity
+    // The Step entity, representing the steps in a recipe. Includes the post that the steps belong too
     public class Step : BaseEntity
     {
         public string Instruction { get; set; }

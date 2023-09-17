@@ -2,10 +2,7 @@ using Core.Entities;
 
 namespace Core.Interfaces
 {
-    /* 
-    Interface that defines the contract that an implementation of a generic repository must follow. 
-    Specifies that the type must be of or dervied from Base Entity
-    */
+    // Interface for the generic repository, responsible for CRUD operations on a generic type, utilizes specification pattern
     public interface IGenericRepository<T> where T : BaseEntity
     {
         Task<IReadOnlyList<T>> ListAllAsync();

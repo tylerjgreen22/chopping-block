@@ -5,8 +5,10 @@ using Microsoft.Extensions.Options;
 
 namespace Infrastructure.Images
 {
+    // Image accessor, responsible for accessing Cloudinary
     public class ImageAccessor : IImageAccessor
     {
+        // Create Cloudinary account object using config settings
         private readonly Cloudinary _cloudinary;
         public ImageAccessor(IOptions<CloudinarySettings> config)
         {
@@ -18,6 +20,7 @@ namespace Infrastructure.Images
             _cloudinary = new Cloudinary(account);
         }
 
+        // Upload image to Cloudinary and return upload result if successful
         public async Task<Core.Models.ImageUploadResult> AddImage(IFormFile file)
         {
             if (file.Length > 0)
@@ -46,6 +49,7 @@ namespace Infrastructure.Images
             return null;
         }
 
+        // Delete image from Cloudinary and return result
         public async Task<string> DeleteImage(string publicId)
         {
             var deleteParams = new DeletionParams(publicId);

@@ -4,8 +4,10 @@ using Core.Interfaces;
 
 namespace Infrastructure.Data
 {
+    // Unit of work used to manage database transactions and data access
     public class UnitOfWork : IUnitOfWork
     {
+        // Obtainting db context via dependency injection
         private readonly DataContext _context;
         private Hashtable _repositories;
         public UnitOfWork(DataContext context)
@@ -13,16 +15,19 @@ namespace Infrastructure.Data
             _context = context;
         }
 
+        // Method that is called when transactions are complete, saving the changes
         public async Task<int> Complete()
         {
             return await _context.SaveChangesAsync();
         }
 
+        // Disposes of resources held by context
         public void Dispose()
         {
             _context.Dispose();
         }
 
+        // Creates repositories and adds them to the hashtable if they don't already exist
         public IGenericRepository<TEntity> Repository<TEntity>() where TEntity : BaseEntity
         {
             _repositories ??= new Hashtable();

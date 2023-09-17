@@ -3,6 +3,7 @@ using Core.Models;
 
 namespace Core.Interfaces
 {
+    // Interface for the post service, which is resposnsible for CRUD operations on posts
     public interface IPostService
     {
         Task<IReadOnlyList<Post>> GetPostsAsync(PostParams postParams);

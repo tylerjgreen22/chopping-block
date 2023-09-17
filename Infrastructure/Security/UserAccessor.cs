@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Security
 {
-    // User accessor for gaining access to the http context accessor from layers that do not have access (Application)
+    // User accessor for gaining access to the http context accessor
     public class UserAccessor : IUserAccessor
     {
         // Injecting the http context accessor via the constructor
@@ -19,14 +19,14 @@ namespace Infrastructure.Security
             _httpContextAccessor = httpContextAccessor;
         }
 
-        // Method that gets the username from the token claims
+        // Method that gets the user from the token claims
         public async Task<AppUser> GetUser()
         {
             // Check auth header is present on request. If missing return null
             var authorizationHeader = _httpContextAccessor.HttpContext.Request.Headers["Authorization"];
             if (string.IsNullOrEmpty(authorizationHeader)) return null;
 
-            // Pull the username from the token claims via http context and return it
+            // Find user via email from token claims
             var email = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.Email);
             var user = await _context.Users.FirstOrDefaultAsync(x => x.Email == email);
 

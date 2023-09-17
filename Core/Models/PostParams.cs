@@ -1,7 +1,7 @@
 namespace Core.Models
 {
     /* 
-    This class is the represents the potential query parameters that can be used by the post specification to apply various operations such as 
+    Model that represents the potential query parameters that can be used by the post specification to apply various operations such as 
     sorting, filtering, searching and pagination
     */
     public class PostParams

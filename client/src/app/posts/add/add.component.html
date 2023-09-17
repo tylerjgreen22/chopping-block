@@ -1,25 +1,71 @@
-<form [formGroup]="postForm">
-    <!-- Title, Description, Picture, CategoryId inputs go here -->
-    <div>
-        <input formControlName="title" placeholder="Title" />
-        <input formControlName="description" placeholder="Description" />
-        <input formControlName="categoryId" placeholder="Category" />
-        <div class="form-group">
-            <label for="picture">Picture</label>
-            <input type="file" id="picture" name="picture" (change)="onPictureSelected($event)" />
-            <button type="button" (click)="removeImage()">Remove Image</button>
-            <img *ngIf="postForm.get('picture')?.value" [src]="postForm.get('picture')?.value" />
-        </div>
-    </div>
+<div class="d-flex justify-content-center">
+    <div class="col-6">
+        <form [formGroup]="postForm" (ngSubmit)="submitForm()">
+            <div class="text-center mb-4">
+                <h1 class="mb-3" *ngIf="this.id === null">Add post</h1>
+                <h1 class="mb-3" *ngIf="this.id !== null">Update post</h1>
 
-    <div formArrayName="steps">
-        <div *ngFor="let step of steps.controls; let i = index" [formGroupName]="i">
-            <input formControlName="instruction" placeholder="Instruction">
-            <input formControlName="stepNumber" placeholder="Step Number">
-            <button (click)="removeStep(i)">Remove</button>
-        </div>
-    </div>
+            </div>
 
-    <button (click)="addStep()">Add Step</button>
-    <button (click)="submitForm()">Submit</button>
-</form>
+            <app-text-input [formControl]="postForm.controls['title']" [label]="'Title'" />
+
+            <app-text-area [formControl]="postForm.controls['description']" [label]="'Description'" />
+
+            <select class="form-select mb-4" (change)="onCategorySelected($event)">
+                <option class="list-group-item" *ngFor="let category of categories" [value]="category.id"
+                    [selected]="postForm.get('categoryId')?.value === category.id">
+                    {{category.name}}
+                </option>
+            </select>
+
+            <div *ngIf="!postForm.get('picture')?.value" class="mb-3">
+                <label for="formFile" class="form-label">Upload picture</label>
+                <input class="form-control" type="file" id="formFile" (change)="onPictureSelected($event)">
+            </div>
+
+            <div *ngIf="postForm.get('picture')?.value">
+                <img [src]="postForm.get('picture')?.value" />
+                <button class="btn btn-danger mt-2" type="button" (click)="removeImage()">Remove Image</button>
+            </div>
+
+            <!-- <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Upload Picture</span>
+                </div>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="inputGroupFile01"
+                        (change)="onPictureSelected($event)">
+                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                </div>
+            </div> -->
+
+            <!-- <div class="form-group">
+                <label for="picture">Picture</label>
+                <input type="file" id="picture" name="picture" (change)="onPictureSelected($event)" />
+                <button type="button" (click)="removeImage()">Remove Image</button>
+                <img *ngIf="postForm.get('picture')?.value" [src]="postForm.get('picture')?.value" />
+            </div> -->
+
+            <div formArrayName="steps" class="my-4">
+                <div *ngFor="let step of steps.controls; let i = index" [formGroupName]="i">
+                    <div class="d-flex flex-column gap-2">
+                        <input formControlName="stepNumber" placeholder="Step Number" class="form-control mt-2">
+                        <textarea formControlName="instruction" placeholder="Instruction"
+                            class="form-control"></textarea>
+                    </div>
+                    <div>
+                        <button class="btn btn-danger mt-2" (click)="removeStep(i)">Remove</button>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-primary" (click)="addStep()">Add Step</button>
+
+            <div class="mt-4">
+                <button class="btn btn-success" (click)="submitForm()">Submit</button>
+            </div>
+
+
+        </form>
+    </div>
+</div>

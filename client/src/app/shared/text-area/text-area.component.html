@@ -1,7 +1,7 @@
 <div class="form-floating mb-3">
-    <textarea rows="4" [formControl]="control" placeholder="{{label}}" class="form-control"
+    <textarea rows="3" [formControl]="control" placeholder="{{label}}" class="form-control"
         [ngClass]="(control.touched) ? control.invalid ? 'is-invalid' : 'is-valid' : null"></textarea>
     <div *ngIf="control.status === 'PENDING'" class="fa fa-spinner fa-spin loader"></div>
     <label for="floatingInput">{{label}}</label>
-    <div *ngIf="control.errors?.['required']" class="invalid-feedback">Please enter your {{label}}</div>
+    <div *ngIf="control.errors?.['required']" class="invalid-feedback">{{label}} is required</div>
 </div>

@@ -5,8 +5,10 @@ using Core.Specifications;
 
 namespace Infrastructure.Services
 {
+    // Post service responsible for CRUD operations on posts
     public class PostService : IPostService
     {
+        // Injecting unit of work and user accessor
         private readonly IUnitOfWork _unitOfWork;
         private readonly IUserAccessor _userAccessor;
         public PostService(IUnitOfWork unitOfWork, IUserAccessor userAccessor)
@@ -15,17 +17,18 @@ namespace Infrastructure.Services
             _unitOfWork = unitOfWork;
         }
 
+        // Get posts based on post params
         public async Task<IReadOnlyList<Post>> GetPostsAsync(PostParams postParams)
         {
-            var spec = new PostListSpecification(postParams);
+            var spec = new PostSpecification(postParams);
             var user = await _userAccessor.GetUser();
             if (postParams.ByUser)
             {
-                
+
                 if (user == null) return null;
-                spec = new PostListSpecification(postParams, user.Id);
+                spec = new PostSpecification(postParams, user.Id);
             }
-                         
+
             var posts = await _unitOfWork.Repository<Post>().ListAsync(spec);
 
             if (posts == null) return null;
@@ -38,13 +41,14 @@ namespace Infrastructure.Services
                     var like = await _unitOfWork.Repository<Like>().GetEntityWithSpecAsync(likeSpec);
                     if (like != null) post.IsLiked = true;
                 }
-                
+
             }
 
             return posts;
 
         }
 
+        // Get the count of total posts based on params
         public async Task<int> GetPostsCountAsync(PostParams postParams)
         {
             var countSpec = new PostCountSpecification(postParams);
@@ -70,7 +74,7 @@ namespace Infrastructure.Services
 
         public async Task<Post> GetPostAsync(string id)
         {
-            var spec = new PostDetailSpecification(id);
+            var spec = new PostSpecification(id);
 
             var post = await _unitOfWork.Repository<Post>().GetEntityWithSpecAsync(spec);
 
@@ -104,7 +108,7 @@ namespace Infrastructure.Services
 
             _unitOfWork.Repository<Post>().Update(post);
 
-            var spec = new StepListSpecification(id);
+            var spec = new StepSpecification(id);
 
             var stepIds = post.Steps.Select(s => s.Id).ToList();
             var existingSteps = await _unitOfWork.Repository<Step>().ListAsync(spec);
@@ -139,7 +143,7 @@ namespace Infrastructure.Services
 
         public async Task<bool> DeletePostAsync(string id)
         {
-            var spec = new PostDetailSpecification(id);
+            var spec = new PostSpecification(id);
             var post = await _unitOfWork.Repository<Post>().GetEntityWithSpecAsync(spec);
             if (post == null) return false;
 

@@ -15,7 +15,7 @@ namespace Core.Specifications
             Criteria = criteria;
         }
 
-        // Local Criteria)
+        // Local Criteria
         public Expression<Func<T, bool>> Criteria { get; }
 
         // List of expressions used for Include statements in the query
