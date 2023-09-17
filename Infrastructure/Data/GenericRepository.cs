@@ -48,17 +48,20 @@ namespace Infrastructure.Data
             return await ApplySpecification(spec).CountAsync();
         }
 
+        // Adds entity to the db set of the entity type
         public void Create(T entity)
         {
             _context.Set<T>().Add(entity);
         }
 
+        // Updates entity in the db set
         public void Update(T entity)
         {
             _context.Set<T>().Attach(entity);
             _context.Entry(entity).State = EntityState.Modified;
         }
 
+        // Removes entity from the db set
         public void Delete(T entity)
         {
             _context.Set<T>().Remove(entity);

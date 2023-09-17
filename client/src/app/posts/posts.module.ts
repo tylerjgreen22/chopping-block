@@ -5,10 +5,9 @@ import { SharedModule } from '../shared/shared.module';
 import { PostsComponent } from './posts.component';
 import { AddComponent } from './add/add.component';
 import { PostsRoutingModule } from './posts-routing.module';
-import { UpdateComponent } from './update/update.component';
 
 @NgModule({
-  declarations: [PostsComponent, AddComponent, UpdateComponent],
+  declarations: [PostsComponent, AddComponent],
   imports: [CommonModule, RouterModule, SharedModule, PostsRoutingModule],
 })
 export class PostsModule {}

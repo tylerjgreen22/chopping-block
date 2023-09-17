@@ -4,8 +4,10 @@ using Core.Specifications;
 
 namespace Infrastructure.Services
 {
+    // Like service, responsible for creating, deleting and checking likes
     public class LikeService : ILikeService
     {
+        // Injecting unit of work and user accessor
         private readonly IUnitOfWork _unitOfWork;
         private readonly IUserAccessor _userAccessor;
         public LikeService(IUnitOfWork unitOfWork, IUserAccessor userAccessor)
@@ -13,6 +15,8 @@ namespace Infrastructure.Services
             _unitOfWork = unitOfWork;
             _userAccessor = userAccessor;
         }
+
+        // Method to check if a user has liked a post
         public async Task<bool> CheckLike(string postId)
         {
             var user = await _userAccessor.GetUser();
@@ -25,6 +29,7 @@ namespace Infrastructure.Services
             return true;
         }
 
+        // Method to create a like on a post if a user has not already liked the post
         public async Task<Like> CreateLike(string postId)
         {
             var user = await _userAccessor.GetUser();
@@ -44,6 +49,7 @@ namespace Infrastructure.Services
             return like;
         }
 
+        // Delete a like from the db
         public async Task<bool> DeleteLike(string postId)
         {
             var user = await _userAccessor.GetUser();

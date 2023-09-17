@@ -50,7 +50,7 @@ export class FeedComponent {
   getCategories() {
     this.postService.getCategories().subscribe({
       next: (response) =>
-        (this.categories = [{ id: 0, name: 'All' }, ...response]),
+        (this.categories = [{ id: '', name: 'All' }, ...response]),
       error: (error) => console.log(error),
     });
   }

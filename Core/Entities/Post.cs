@@ -1,8 +1,7 @@
 namespace Core.Entities
 {
     /* 
-    The RecipePost entity, representing the core of the application, the recipe post. 
-    Has a foreign key relationship with the recipe category. 
+    The Post entity, representing the core of the application, the post. Includes the category, steps, user and likes that are attributed to the post
     */
     public class Post : BaseEntity
     {

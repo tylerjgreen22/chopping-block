@@ -1,15 +1,30 @@
-<div *ngIf="post" class="row">
-    <div class="col-6">
-        <img src="{{post.picture}}" alt="{{post.title}}">
+<div *ngIf="post">
+    <div class="row justify-content-center">
+        <div class="col-8 text-center">
+            <h2>{{post.title}}</h2>
+            <p>{{post.description}}</p>
+        </div>
     </div>
-    <div class="col-6">
-        <h2>{{post.title}}</h2>
-        <p>{{post.description}}</p>
+
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <img class="img rounded" src="{{post.picture}}" alt="{{post.title}}">
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-8 d-flex justify-content-between mt-3">
+            <p>Posted by: {{post.user}}</p>
+            <p>{{post.category}}</p>
+            <p>{{post.likes}} likes</p>
+        </div>
     </div>
 </div>
 
-<div *ngIf="steps">
-    <div *ngFor="let step of steps">
-        <p>{{step.stepNumber}}: {{step.instruction}}</p>
+<div class="row justify-content-center">
+    <div *ngIf="steps" class="bg-secondary col-8 rounded p-3">
+        <div *ngFor="let step of steps">
+            <p>{{step.stepNumber}}: {{step.instruction}}</p>
+        </div>
     </div>
 </div>
