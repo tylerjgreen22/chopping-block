@@ -5,20 +5,16 @@ using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
 using Core.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
     public class PostsController : BaseApiController
     {
-        // Private readonly fields for the repositories
         private readonly IPostService _postService;
         private readonly IMapper _mapper;
 
-        /* 
-        The repositories are obtained via the dependency injection container and set to the local fields, the types passed in to the generic repositories
-        allow for those repositories to then be used to retrieve information of that type
-        */
         public PostsController(
             IPostService postService,
             IMapper mapper)
@@ -27,12 +23,6 @@ namespace API.Controllers
             _mapper = mapper;
         }
 
-        /* 
-        All routes are async and return non blocking tasks to allow program to continue operation while waiting for tasks to complete 
-        Some routes use automapper to map returned values to DTOs
-        */
-
-        // Route to retrieve posts from repository and return an object containg pagination information as well as requested data
         [HttpGet]
         public async Task<ActionResult<IReadOnlyList<PostToReturnDto>>> GetPosts([FromQuery] PostParams postParams)
         {
@@ -46,13 +36,6 @@ namespace API.Controllers
             return Ok(new Pagination<PostListToReturnDto>(postParams.PageIndex, postParams.PageSize, totalItems, data));
         }
 
-        // [HttpGet("user")]
-        // public async Task<ActionResult<PostToReturnDto>> GetUserPosts([FromQuery] PostParams postParams)
-        // {
-        //     var posts = await _postService;
-        // }
-
-        // Route to retrieve single post from repository and return the post.
         [HttpGet("{id}")]
         public async Task<ActionResult<PostToReturnDto>> GetPost(string id)
         {
@@ -71,6 +54,7 @@ namespace API.Controllers
             return Ok(categories);
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> CreatePost(PostDto postToCreate)
         {
@@ -83,6 +67,7 @@ namespace API.Controllers
             return Created($"posts/{returnPost.Id}", _mapper.Map<Post, PostToReturnDto>(post));
         }
 
+        [Authorize(Policy = "IsOwner")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdatePost(string id, [FromBody] PostDto postToUpdate)
         {
@@ -95,6 +80,7 @@ namespace API.Controllers
             return NoContent();
         }
 
+        [Authorize(Policy = "IsOwner")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePost(string id)
         {

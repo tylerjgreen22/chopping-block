@@ -1,7 +1,9 @@
 using System.Text;
 using Core.Entities;
 using Infrastructure.Data;
+using Infrastructure.Security;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 
@@ -35,7 +37,15 @@ namespace API.Extensions
             });
 
             // Enables authorization middleware
-            services.AddAuthorization();
+            services.AddAuthorization(opt =>
+            {
+                opt.AddPolicy("IsOwner", policy =>
+                {
+                    policy.Requirements.Add(new IsOwnerRequirement());
+                });
+            });
+
+            services.AddTransient<IAuthorizationHandler, IsOwnerRequirementHandler>();
 
             return services;
         }

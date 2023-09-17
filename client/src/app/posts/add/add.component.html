@@ -28,24 +28,6 @@
                 <button class="btn btn-danger mt-2" type="button" (click)="removeImage()">Remove Image</button>
             </div>
 
-            <!-- <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">Upload Picture</span>
-                </div>
-                <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="inputGroupFile01"
-                        (change)="onPictureSelected($event)">
-                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                </div>
-            </div> -->
-
-            <!-- <div class="form-group">
-                <label for="picture">Picture</label>
-                <input type="file" id="picture" name="picture" (change)="onPictureSelected($event)" />
-                <button type="button" (click)="removeImage()">Remove Image</button>
-                <img *ngIf="postForm.get('picture')?.value" [src]="postForm.get('picture')?.value" />
-            </div> -->
-
             <div formArrayName="steps" class="my-4">
                 <div *ngFor="let step of steps.controls; let i = index" [formGroupName]="i">
                     <div class="d-flex flex-column gap-2">
