@@ -36,6 +36,7 @@ namespace API.Controllers
             return Ok(new Pagination<PostListToReturnDto>(postParams.PageIndex, postParams.PageSize, totalItems, data));
         }
 
+        [Cached(600)]
         [HttpGet("{id}")]
         public async Task<ActionResult<PostToReturnDto>> GetPost(string id)
         {
@@ -46,6 +47,7 @@ namespace API.Controllers
             return Ok(_mapper.Map<Post, PostToReturnDto>(post));
         }
 
+        [Cached(600)]
         [HttpGet("categories")]
         public async Task<ActionResult<IReadOnlyList<Category>>> GetPostCategories()
         {

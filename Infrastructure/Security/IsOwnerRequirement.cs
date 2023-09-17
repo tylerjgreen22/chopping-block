@@ -1,9 +1,8 @@
 ﻿using System.Security.Claims;
-using Core.Entities;
-using Core.Interfaces;
-using Core.Specifications;
+using Infrastructure.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Security
 {
@@ -12,11 +11,11 @@ namespace Infrastructure.Security
     public class IsOwnerRequirementHandler : AuthorizationHandler<IsOwnerRequirement>
     {
         // Injecting the db context and the http context accessor via constructor
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly DataContext _dbContext;
         private readonly IHttpContextAccessor _httpContextAccessor;
-        public IsOwnerRequirementHandler(IUnitOfWork unitOfWork, IHttpContextAccessor httpContextAccessor)
+        public IsOwnerRequirementHandler(DataContext dbContext, IHttpContextAccessor httpContextAccessor)
         {
-            _unitOfWork = unitOfWork;
+            _dbContext = dbContext;
             _httpContextAccessor = httpContextAccessor;
         }
 
@@ -31,12 +30,12 @@ namespace Infrastructure.Security
             var postId = _httpContextAccessor.HttpContext?.Request.RouteValues.SingleOrDefault(x => x.Key == "id").Value?.ToString();
 
             // Find the set that is being modified, includes the app user. If not found return null.
-            var spec = new PostSpecification(postId);
-            var post = _unitOfWork.Repository<Post>().GetEntityWithSpecAsync(spec).Result;
+            var post = _dbContext.Posts.Include(x => x.User).FirstOrDefaultAsync(x => x.Id == postId).Result;
             if (post == null) return Task.CompletedTask;
 
             // If the app user id on the set matches the user id from the token, add success to the requirement.
             if (post.UserId == userId) context.Succeed(requirement);
+            _dbContext.Entry(post).State = EntityState.Detached;
 
             // Return completed task. If the previous check passed, this will allow the user to make the change to the resource
             return Task.CompletedTask;

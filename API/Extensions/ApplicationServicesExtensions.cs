@@ -6,6 +6,7 @@ using Infrastructure.Security;
 using Infrastructure.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using StackExchange.Redis;
 
 namespace API.Extensions
 {
@@ -24,6 +25,12 @@ namespace API.Extensions
                 options.UseSqlite(config.GetConnectionString("DefaultConnection"));
             });
 
+            services.AddSingleton<IConnectionMultiplexer>(c =>
+            {
+                var options = ConfigurationOptions.Parse(config.GetConnectionString("Redis"));
+                return ConnectionMultiplexer.Connect(options);
+            });
+
             // Adds the implementation of the PostRespository as a Scoped service that will survive for the life of the Http call. Uses typeof due to generic types
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
@@ -33,6 +40,7 @@ namespace API.Extensions
             services.AddScoped<IPostService, PostService>();
             services.AddScoped<ILikeService, LikeService>();
             services.AddScoped<IImageService, ImageService>();
+            services.AddSingleton<IResponseCacheService, ResponseCacheService>();
 
             // Adds the auto mapper service to be used throughtout application. Pulls mapping profiles from Assembly
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

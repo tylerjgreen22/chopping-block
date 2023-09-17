@@ -29,7 +29,8 @@ namespace Infrastructure.Services
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Email, user.Email),
-                new Claim(ClaimTypes.GivenName, user.UserName)
+                new Claim(ClaimTypes.Name, user.UserName),
+                new Claim(ClaimTypes.NameIdentifier, user.Id)
             };
 
             // Creating the credentials using the key and the HmacSha512Signature that will be used to sign the key
