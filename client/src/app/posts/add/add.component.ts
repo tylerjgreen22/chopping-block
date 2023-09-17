@@ -55,11 +55,15 @@ export class AddComponent {
   }
 
   submitForm() {
+    // if (this.postForm.valid) {
+    //   const formData = this.postForm.value;
+    //   this.postService.createPost(formData).subscribe({
+    //     next: () => this.router.navigateByUrl('/posts'),
+    //   });
+    // }
+
     if (this.postForm.valid) {
       const formData = this.postForm.value;
-      this.postService.createPost(formData).subscribe({
-        next: () => this.router.navigateByUrl('/posts'),
-      });
     }
   }
 }
