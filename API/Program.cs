@@ -40,6 +40,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+app.MapFallbackToController("Index", "Fallback");
 
 // Accesses the local scope of the program and pulls out the contexts and logger from the services container. Logger is logging against Program
 // Using keyword is used as the scope is IDisposable, and must be disposed of after use

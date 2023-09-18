@@ -22,7 +22,7 @@ namespace API.Extensions
             // Add DbContext to the dependency injection container to be used throughout the project. Connection string retrieved from appsettings.json
             services.AddDbContext<DataContext>(options =>
             {
-                options.UseSqlite(config.GetConnectionString("DefaultConnection"));
+                options.UseNpgsql(config.GetConnectionString("DefaultConnection"));
             });
 
             services.AddSingleton<IConnectionMultiplexer>(c =>

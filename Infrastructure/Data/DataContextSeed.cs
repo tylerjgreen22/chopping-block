@@ -1,3 +1,4 @@
+using System.Reflection;
 using System.Text.Json;
 using Core.Entities;
 using Microsoft.AspNetCore.Identity;
@@ -9,6 +10,8 @@ namespace Infrastructure.Data
     {
         public static async Task SeedAsync(DataContext context, UserManager<AppUser> userManager)
         {
+            var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+
             if (!userManager.Users.Any())
             {
                 var users = new List<AppUser> {
@@ -38,21 +41,21 @@ namespace Infrastructure.Data
 
             if (!context.Categories.Any())
             {
-                var categoriesData = File.ReadAllText("../Infrastructure/Data/SeedData/categories.json");
+                var categoriesData = File.ReadAllText(path + @"/Data/SeedData/categories.json");
                 var categories = JsonSerializer.Deserialize<List<Category>>(categoriesData);
                 context.Categories.AddRange(categories);
             }
 
             if (!context.Posts.Any())
             {
-                var postsData = File.ReadAllText("../Infrastructure/Data/SeedData/posts.json");
+                var postsData = File.ReadAllText(path + @"/Data/SeedData/posts.json");
                 var posts = JsonSerializer.Deserialize<List<Post>>(postsData);
                 context.Posts.AddRange(posts);
             }
 
             if (!context.Steps.Any())
             {
-                var stepsData = File.ReadAllText("../Infrastructure/Data/SeedData/steps.json");
+                var stepsData = File.ReadAllText(path + @"/Data/SeedData/steps.json");
                 var steps = JsonSerializer.Deserialize<List<Step>>(stepsData);
                 foreach (var step in steps)
                 {
@@ -63,14 +66,14 @@ namespace Infrastructure.Data
 
             if (!context.Likes.Any())
             {
-                var likesData = File.ReadAllText("../Infrastructure/Data/SeedData/likes.json");
+                var likesData = File.ReadAllText(path + @"/Data/SeedData/likes.json");
                 var likes = JsonSerializer.Deserialize<List<Like>>(likesData);
                 context.Likes.AddRange(likes);
             }
 
             if (!context.Images.Any())
             {
-                var imagesData = File.ReadAllText("../Infrastructure/Data/SeedData/images.json");
+                var imagesData = File.ReadAllText(path + @"/Data/SeedData/images.json");
                 var images = JsonSerializer.Deserialize<List<Image>>(imagesData);
                 context.Images.AddRange(images);
             }

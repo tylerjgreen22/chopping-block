@@ -5,9 +5,10 @@ import {
   HttpEvent,
   HttpInterceptor,
 } from '@angular/common/http';
-import { Observable, delay, finalize } from 'rxjs';
+import { Observable, delay, finalize, identity } from 'rxjs';
 
 import { LoadingService } from '../services/loading.service';
+import { environment } from 'src/environments/environment';
 
 // Interceptor for handling loading state
 @Injectable()
@@ -26,7 +27,7 @@ export class LoadingInterceptor implements HttpInterceptor {
     }
 
     return next.handle(request).pipe(
-      delay(1000),
+      environment.production ? identity : delay(1000),
       finalize(() => this.loadingService.idle())
     );
   }
