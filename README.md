@@ -1,7 +1,7 @@
-#Chopping block
+# Chopping block
 This full-stack web application allows users to discover and share their favorite recipes. Built with Angular for the front end and ASP.NET Core for the backend, this application is designed with maintainability, scalability, and performance in mind.
 
-##Features
+## Features
 User Authentication: Users can create accounts, and manage their posts and interact with others posts.
 
 Recipe Management: Create, edit, and delete your own recipes. Share your culinary creations with the community.
@@ -12,7 +12,7 @@ Like Posts: Like or unlike posts from other users, filter by most liked recipes 
 
 Cloudinary Image hosting: Recipe images hosted via Cloudinary to allow fast access to images.
 
-##Architecture
+## Architecture
 
 Generic Repository Pattern: Implemented the generic repository pattern to promote code maintainability and reduce duplication.
 
@@ -20,7 +20,7 @@ Specification Pattern: Utilizing the specification pattern for flexible and effi
 
 Unit of Work Pattern: Manage database transactions and operations using the unit of work pattern.
 
-##Backend Features
+## Backend Features
 
 Caching with Redis: Improve application performance by caching frequently accessed data with Redis.
 
@@ -28,7 +28,7 @@ Database: PostgreSQL is used as the database to store recipe information and use
 
 API: Full sorting, filtering, searching and pagination functionality for API results
 
-##Technologies Used
+## Technologies Used
 Front End: Angular
 Back End: ASP.NET Core
 Database: PostgreSQL
@@ -37,7 +37,7 @@ Authentication: ASP.net Identity w/ JWT (JSON Web Tokens)
 
 View the application yourself at: https://choppingblock.online/
 
-##Contact
+## Contact
 For any questions or inquiries, please contact me at tylerjgreen22@gmail.com.
 
 Enjoy exploring and sharing your culinary adventures with the Chopping Block Application! 🍽️
