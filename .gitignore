@@ -6,6 +6,8 @@
 *.db
 *.db*
 appsettings.json
+.vs
+.vscode
 
 # User-specific files
 *.rsuser
