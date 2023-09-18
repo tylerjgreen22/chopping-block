@@ -8,6 +8,7 @@ import {
 import { Observable, take } from 'rxjs';
 import { AccountService } from 'src/app/account/account.service';
 
+// Interceptor that adds the token to the request if present
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
   token?: string = localStorage.getItem('token') || undefined;

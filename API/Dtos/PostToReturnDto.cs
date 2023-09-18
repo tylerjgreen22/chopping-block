@@ -1,6 +1,6 @@
 namespace API.Dtos
 {
-    // DTO for the Recipe Post entity, flattens Category and removes steps list and recipe category id
+    // Post to return DTO, returns relevant information including user, likes and steps
     public class PostToReturnDto
     {
         public string Id { get; set; }

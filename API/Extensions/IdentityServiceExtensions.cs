@@ -36,7 +36,7 @@ namespace API.Extensions
                 };
             });
 
-            // Enables authorization middleware
+            // Enables authorization middleware with custom auth policy
             services.AddAuthorization(opt =>
             {
                 opt.AddPolicy("IsOwner", policy =>
@@ -44,7 +44,6 @@ namespace API.Extensions
                     policy.Requirements.Add(new IsOwnerRequirement());
                 });
             });
-
             services.AddTransient<IAuthorizationHandler, IsOwnerRequirementHandler>();
 
             return services;

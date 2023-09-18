@@ -10,8 +10,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
+    // Controller for interacting with posts
     public class PostsController : BaseApiController
     {
+        // Injecting post service and auto mapper
         private readonly IPostService _postService;
         private readonly IMapper _mapper;
 
@@ -23,6 +25,7 @@ namespace API.Controllers
             _mapper = mapper;
         }
 
+        // Get paginated posts matching provided query params (postParams) as well as the total posts matching that set of query params
         [HttpGet]
         public async Task<ActionResult<IReadOnlyList<PostToReturnDto>>> GetPosts([FromQuery] PostParams postParams)
         {
@@ -36,6 +39,7 @@ namespace API.Controllers
             return Ok(new Pagination<PostListToReturnDto>(postParams.PageIndex, postParams.PageSize, totalItems, data));
         }
 
+        // Get a post by id, will use cache if possible
         [Cached(600)]
         [HttpGet("{id}")]
         public async Task<ActionResult<PostToReturnDto>> GetPost(string id)
@@ -47,6 +51,7 @@ namespace API.Controllers
             return Ok(_mapper.Map<Post, PostToReturnDto>(post));
         }
 
+        // Get categories, will use cache if possible
         [Cached(600)]
         [HttpGet("categories")]
         public async Task<ActionResult<IReadOnlyList<Category>>> GetPostCategories()
@@ -56,6 +61,7 @@ namespace API.Controllers
             return Ok(categories);
         }
 
+        // Create a post if post is valid, requires user to be authorized
         [Authorize]
         [HttpPost]
         public async Task<IActionResult> CreatePost(PostDto postToCreate)
@@ -69,6 +75,7 @@ namespace API.Controllers
             return Created($"posts/{returnPost.Id}", _mapper.Map<Post, PostToReturnDto>(post));
         }
 
+        // Update a post if post is valid, requires user to be authorized against custom auth policy
         [Authorize(Policy = "IsOwner")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdatePost(string id, [FromBody] PostDto postToUpdate)
@@ -82,6 +89,7 @@ namespace API.Controllers
             return NoContent();
         }
 
+        // Delete a post, requires user to be authorized against custom auth policy
         [Authorize(Policy = "IsOwner")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePost(string id)

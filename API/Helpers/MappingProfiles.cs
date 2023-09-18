@@ -4,7 +4,7 @@ using Core.Entities;
 
 namespace API.Helpers
 {
-    // Mapping profiles for auto mapper to map return entities to DTOs. Also augments image URL to include the url specified in the appsettings using PostUrlResolver
+    // Mapping profiles for auto mapper to map return entities to DTOs
     public class MappingProfiles : Profile
     {
         public MappingProfiles()

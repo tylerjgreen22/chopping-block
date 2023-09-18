@@ -29,7 +29,7 @@ app.UseStatusCodePagesWithReExecute("/errors/{0}");
 // Using swagger service
 app.UseSwaggerDocumentation();
 
-// Server static files
+// Serve static files
 app.UseStaticFiles();
 
 // Using created CORS policy
@@ -40,15 +40,16 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+// Fallback controller for serving client files
 app.MapFallbackToController("Index", "Fallback");
 
 // Accesses the local scope of the program and pulls out the contexts and logger from the services container. Logger is logging against Program
 // Using keyword is used as the scope is IDisposable, and must be disposed of after use
-// Pulls out userManager to create a user with seed method
 using var scope = app.Services.CreateScope();
 var services = scope.ServiceProvider;
 
-// Creates the database based on migration, and uses the DataContextSeed SeedAsync  and AppIdentityDbContextSeed SeedUsersAsync methods to seed the databases when the program starts
+// Creates the database based on migration, and uses the DataContextSeed SeedAsync method to seed the database when the program starts
 try
 {
     var context = services.GetRequiredService<DataContext>();

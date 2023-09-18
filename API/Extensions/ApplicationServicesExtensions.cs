@@ -25,17 +25,18 @@ namespace API.Extensions
                 options.UseNpgsql(config.GetConnectionString("DefaultConnection"));
             });
 
+            // Add redis connection multiplexer
             services.AddSingleton<IConnectionMultiplexer>(c =>
             {
                 var options = ConfigurationOptions.Parse(config.GetConnectionString("Redis"));
                 return ConnectionMultiplexer.Connect(options);
             });
 
-            // Adds the implementation of the PostRespository as a Scoped service that will survive for the life of the Http call. Uses typeof due to generic types
+            // Adding generic repo and unit of work for dependency injection
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-            // Add implementation of Token Service as scoped service
+            // Adding scoped services for dependency injection
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IPostService, PostService>();
             services.AddScoped<ILikeService, LikeService>();
@@ -76,6 +77,8 @@ namespace API.Extensions
             // Add Http context accessor and user accessor
             services.AddHttpContextAccessor();
             services.AddScoped<IUserAccessor, UserAccessor>();
+
+            // Cloudinary accessor and adding cloudinary information to dependency injection container
             services.AddScoped<IImageAccessor, ImageAccessor>();
             services.Configure<CloudinarySettings>(config.GetSection("Cloudinary"));
 

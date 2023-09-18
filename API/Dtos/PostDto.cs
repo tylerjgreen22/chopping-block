@@ -3,6 +3,7 @@ using Core.Entities;
 
 namespace API.Dtos
 {
+    // PostDTO for validating incoming posts
     public class PostDto
     {
         [Required]

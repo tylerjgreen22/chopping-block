@@ -23,7 +23,7 @@ export class FeedComponent {
   totalCount = 0;
   currentRoute?: string;
 
-  // Injecting Home Service to get information from the backend
+  // Injecting post Service to get information from the backend
   constructor(private postService: PostService, public router: Router) {}
 
   // On page load, get the posts and the categories using class methods
@@ -32,7 +32,7 @@ export class FeedComponent {
     this.getCategories();
   }
 
-  // Subscribes to the observable returned from the home service getPosts method, sets posts and pagination info
+  // Subscribes to the observable returned from the post service getPosts method, sets posts and pagination info
   getPosts() {
     if (this.router.url === '/posts') this.postParams.byUser = true;
     this.postService.getPosts(this.postParams).subscribe({
@@ -46,7 +46,7 @@ export class FeedComponent {
     });
   }
 
-  // Subscribes to the observable returned from the home service getCategories method, sets categories, as well as a default 'All' category
+  // Subscribes to the observable returned from the post service getCategories method, sets categories, as well as a default 'All' category
   getCategories() {
     this.postService.getCategories().subscribe({
       next: (response) =>
@@ -90,18 +90,21 @@ export class FeedComponent {
     this.getPosts();
   }
 
+  // On like, create like using the id
   onLike(id: string) {
     this.postService.createLike(id).subscribe({
       next: () => this.getPosts(),
     });
   }
 
+  // On unlike delete the like matching that id
   onUnlike(id: string) {
     this.postService.deleteLike(id).subscribe({
       next: () => this.getPosts(),
     });
   }
 
+  // On delete, delete post matching that id
   onDelete(id: string) {
     this.postService.deletePost(id).subscribe({
       next: () => this.getPosts(),

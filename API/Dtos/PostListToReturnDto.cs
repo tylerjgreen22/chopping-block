@@ -1,5 +1,6 @@
 namespace API.Dtos
 {
+    // DTO for list of posts to return relevant information
     public class PostListToReturnDto
     {
         public string Id { get; set; }

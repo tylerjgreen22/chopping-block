@@ -14,7 +14,7 @@ export class PostDetailComponent implements OnInit {
   post?: Post;
   steps?: Step[];
 
-  // Injecting home service to access backend and route to grab id from route params
+  // Injecting post service to access backend and route to grab id from route params
   constructor(
     private postService: PostService,
     private route: ActivatedRoute
@@ -25,7 +25,7 @@ export class PostDetailComponent implements OnInit {
     this.loadPost();
   }
 
-  // Grabs id from route params, uses home service with Id (casted to int with +) to retrieve post
+  // Grabs id from route params, uses post service with Id to retrieve post
   loadPost() {
     const id = this.route.snapshot.paramMap.get('id');
 

@@ -1,9 +1,8 @@
 import { HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from 'src/app/shared/models/category';
-import { Post } from 'src/app/shared/models/post';
 import { PostService } from 'src/app/shared/post.service';
 
 @Component({
@@ -29,11 +28,13 @@ export class AddComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
 
+  // On load, get categories and if there is a post id, get post to update
   ngOnInit(): void {
     this.getCategories();
     if (this.id) this.getPost();
   }
 
+  // If id, get post and set form inputs to the post to update info
   getPost() {
     if (this.id) {
       this.postService.getPost(this.id).subscribe({
@@ -61,14 +62,17 @@ export class AddComponent implements OnInit {
     }
   }
 
+  // Getter for the steps in the form
   get steps() {
     return this.postForm.get('steps') as FormArray;
   }
 
+  // When a category is selected, set the post form to that category ID
   onCategorySelected(event: any) {
     this.postForm.get('categoryId')?.setValue(event.target.value);
   }
 
+  // When a picture is selected, upload to Cloudinary and set form input
   onPictureSelected(event: any) {
     const file = event.target.files[0];
     if (file) {
@@ -81,6 +85,7 @@ export class AddComponent implements OnInit {
     }
   }
 
+  // On image removed, delete image from cloudinary and set form input
   removeImage() {
     const id = this.postForm.get('picture')?.value?.split('/')[7].split('.')[0];
     if (id) {
@@ -90,6 +95,7 @@ export class AddComponent implements OnInit {
     }
   }
 
+  // When add step button is pressed, add a blank step to the step array of the form
   addStep() {
     this.steps.push(
       this.fb.group({
@@ -99,10 +105,12 @@ export class AddComponent implements OnInit {
     );
   }
 
+  // Remove the step from the form array
   removeStep(index: number) {
     this.steps.removeAt(index);
   }
 
+  // Get the categories and set the local field
   getCategories() {
     this.postService.getCategories().subscribe({
       next: (response) =>
@@ -111,6 +119,7 @@ export class AddComponent implements OnInit {
     });
   }
 
+  // On submit, if the form is valid and there is an id, update the post, otherwise create the post
   submitForm() {
     if (this.postForm.valid) {
       const formData = this.postForm.value;

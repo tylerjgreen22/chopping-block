@@ -4,8 +4,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
+    // Controller for interacting with images
     public class ImageController : BaseApiController
     {
+        // Inject image service
         private readonly IImageService _imageService;
         public ImageController(IImageService imageService)
         {
@@ -13,6 +15,7 @@ namespace API.Controllers
 
         }
 
+        // Add file to cloudinary and DB and return created with image URL if successful
         [HttpPost]
         public async Task<IActionResult> Add([FromForm] IFormFile file)
         {
@@ -23,6 +26,7 @@ namespace API.Controllers
             return Created($"{image.Url}", image.Url);
         }
 
+        // Delete image from cloudinary and DB via id
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(string id)
         {

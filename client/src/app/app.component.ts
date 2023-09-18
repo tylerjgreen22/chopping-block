@@ -10,7 +10,7 @@ export class AppComponent implements OnInit {
   title = 'Chopping Block';
 
   constructor(private accountService: AccountService) {}
-
+  // Load user on page load if token is present
   ngOnInit(): void {
     this.loadCurrentUser();
   }

@@ -2,6 +2,7 @@
 
 namespace API.Controllers
 {
+    // Fallback controller for serving static client files (index.html) from wwwroot
     public class FallbackController : Controller
     {
         public IActionResult Index()

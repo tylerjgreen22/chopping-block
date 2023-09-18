@@ -14,6 +14,7 @@ export class PostService {
 
   constructor(private http: HttpClient) {}
 
+  // Get posts matching supplied post params
   getPosts(postParams: PostParams) {
     let params = new HttpParams();
 
@@ -58,6 +59,7 @@ export class PostService {
     return this.http.delete<void>(this.baseUrl + 'posts/' + id);
   }
 
+  // Upload picture as form data
   uploadPicture(file: File) {
     const formData = new FormData();
     formData.append('file', file);
